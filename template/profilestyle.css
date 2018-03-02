@@ -1,0 +1,115 @@
+.container{
+
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+.logo{
+    margin-left: 30px;
+    font-size: 2em;
+    background-color: #b20000;
+    color: white !important;
+    padding: 5px;
+}
+.menu:hover{
+    color: #b20000 !important;
+}
+.profile{
+    padding-top: 100px;
+}
+.edit-profile{
+    display: block;
+    text-align: center;
+}
+.edit-btn{
+    width: 100px;
+    margin-top: 20px;
+}
+.p-image{
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+}
+.r-businesses{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.r-businesses>h2{
+    color: #b20000;
+}
+.business{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    margin-top: 10px;
+}
+.p-image{
+    width: 14em;
+    height: 12.3em;
+}
+.b-image{
+    width: 11em;
+    height: 12.3em;
+}
+.p-desc{
+    margin-left: 1.5em;
+}
+.footer{
+    background-color: black;
+    bottom: 0;
+    width: 100%;
+    color: lightgrey;
+}
+.f1{
+    margin-left: 2em;
+}
+.f-top{
+    border-bottom: 1px solid lightgrey;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+.f-bottom{
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+.f-name{
+    background-color: #b20000;
+    color: white;
+    padding: 5px;
+}
+.f-media{
+    cursor: pointer;
+}
+.f-media:hover{
+    color: #b20000;
+}
+.f-google, .f-link, .f-twitter{
+    margin-left: 8px;
+}
+.f-address{
+    margin-left: 6px;
+}
+.f-city{
+    margin-left: 22px;
+}
+.f-terms, .f-privacy{
+    color: lightgrey;
+}
+.f-terms:hover, .f-privacy:hover{
+    color: #b20000;
+}
+.col-md-3>a{
+    text-decoration: none;
+}
+@media(max-width: 767px){
+    .footer{
+        text-align: center;
+    }
+    .profile{
+        display: block;
+        text-align: center;
+    }
+
+}

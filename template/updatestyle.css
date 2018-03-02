@@ -1,0 +1,16 @@
+.r-form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    line-height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.r-text{
+    text-align: center;
+}
+.b-form{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
