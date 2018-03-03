@@ -17,7 +17,7 @@
     "eslint-plugin-import": "^2.9.0"
   },
   "scripts": {
-    "start:dev": "nodemon ./bin/www",
+    "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
