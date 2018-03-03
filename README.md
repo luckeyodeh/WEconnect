@@ -8,5 +8,5 @@ Weconnect provides a platform that brings businesses and individuals together. T
 
     `git clone https://github.com/luckeyodeh/WEconnect.git`
 
-2. Open on your local browser 
+2. Open on your local browser by double clicking the index.html file
 
