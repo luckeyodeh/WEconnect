@@ -25,13 +25,13 @@ body{
     background-color: white;
 }
 .bg-image{
-    width:100%;
-    height:500px; 
+    width: 100%;
+    height: 636px; 
 }
 .background-words{
     text-align: center;
-    margin-top: -26em;
-    color: white;
+    margin-top: -23em;
+    color: #b20000;
 }
 .search{
     display: flex;
