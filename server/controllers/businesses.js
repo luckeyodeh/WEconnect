@@ -1,139 +1,83 @@
-//import { Z_DEFAULT_COMPRESSION } from 'zlib';
+const express = require('express');
+const _ = require('lodash');
 
-var express = require('express');
-var router = express.Router();
+const router = express.Router();
+var businesses = [];
 
-	
-global.businesses = [
-	{
-		id: 1,
-		name: 'ABC Ltd',
-		location: 'Lagos'
-	},
-	{
-		id: 2,
-		name: '123 Ltd',
-		location: 'Abuja'
-	},
-	{
-		id: 3,
-		name: 'XYZ Ltd',
-		location: 'Lagos'
+var reviews = [];
+
+var id = 0;
+
+var updateId = function(req, res, next) {
+	if (!req.body.id) {
+	  id++;
+	  req.body.id = id + '';
 	}
-];
+	next();
+ };
 
-global.reviews = [
-	{
-		name: 'James',
-		post: 'thumbs up'
-	},
-	{
-		name: 'Collins',
-		post: 'thumbs down'
+ router.param('id', function(req, res, next, id) {
+	var business = _.find(businesses, {id: id})
+ 
+	if (business) {
+	  req.business = business;
+	  next();
+	} else {
+	  res.send();
 	}
-];
-
-router.get('/', function(req, res){
-	return res.json({
-		business: global.businesses,
-		error: false
-	});
-});
-
-router.post('/', function(req, res){
-	if (!req.body.name){
-		return res.json({
-			message: 'business name missing',
-			error: true
-		});
+ });
+ 
+ router.get('/', function(req, res){
+	res.json(businesses);
+ });
+ 
+ router.get('/:id', function(req, res){
+	var business = req.business;
+	res.json(business || {});
+ });
+ 
+ router.post('/', updateId, function(req, res) {
+	var business = req.body;
+ 
+	businesses.push(business);
+ 
+	res.json(business);
+ });
+ 
+ router.delete('/:id', function(req, res) {
+	var business = _.findIndex(businesses, {id: req.params.id});
+	businesses.splice(business, 1);
+ 
+	res.json(req.business);
+ });
+ 
+ router.put('/:id', function(req, res) {
+	var update = req.body;
+	if (update.id) {
+	  delete update.id
 	}
-	global.businesses.push(req.body);
-	return res.json({
-		message: 'success',
-		error: false
-	});
-});
-
-router.put('/:businessid', function(req, res){
-	for(let i=0; i<global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			global.businesses[i].name = req.body.name;
-			global.businesses[i].hobby = req.body.hobby;
-			return res.json({
-				message: 'success',
-				error: false
-			});
-		}
+ 
+	var business = _.findIndex(businesses, {id: req.params.id});
+	if (!businesses[business]) {
+	  res.send();
+	} else {
+	  var updatedBusiness = _.assign(businesses[business], update);
+	  res.json(updatedBusiness);
 	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	});
-});
+ });
 
-router.delete('/:businessid', function(req, res){
-	for(let i=0; i<global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			global.businesses.splice(i,1);
-			return res.json({
-				message: 'success',
-				error: false
-			});
-		}
-	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	})
-});
+ router.get('/reviews', function(req, res){
+	res.json(reviews);
+ });
 
-router.get('/:businessid', function(req, res){
-	for(let i = 0; i < global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			return res.json({
-				businesses: global.businesses[i],
-				message: 'success',
-				error: false
-			});
-		}
-	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	})
-});
-
-router.get('/reviews', function(req, res){
-	return res.json({
-		reviews: global.reviews,
-		error: false
-	});
-});
-
-router.post('/reviews', function(req, res){
-	if (!req.body.name){
-		return res.json({
-			message: 'review not posted',
-			error: true
-		});
-	}
-	global.reviews.push(req.body);
-	return res.json({
-		message: 'success',
-		error: false
-	});
-});
-
-router.get('/', function(req, res){
-	var location = req.query.location;
-});
-
-/*router.get('/', function(req, res) {
-	res.json({'users':'ALL'}); 
-});
-
-router.get('/:id', function(req, res) {
-	res.json({'user_id':req.params.id}); 
-});*/
+ router.post('/reviews', updateId, function(req, res) {
+	var review = req.body;
+ 
+	reviews.push(review);
+ 
+	res.json(review);
+ });
+ 
+ 
 
 module.exports = router;
