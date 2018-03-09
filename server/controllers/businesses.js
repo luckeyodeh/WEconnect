@@ -1,83 +1,178 @@
-const express = require('express');
-const _ = require('lodash');
+import db from '../models/dummyBusinesses';
 
-const router = express.Router();
-var businesses = [];
+/**
+ * Business Controller.
+ * @class BusinessController
+ * */
+class BusinessController {
+  /**
+   * Register a new business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static register(req, res) {
+    const {
+      name, details, location, category
+    } = req.body;
 
-var reviews = [];
+    if (!req.body.name) {
+      return res.status(400).json({
+        message: 'Business Name Missing',
+        error: true
+      });
+    }
 
-var id = 0;
+    const id = db.business.length + 1;
+    const newBusiness = {
+      id, name, details, category, location
+    };
+    db.business.push(newBusiness);
+    return res.status(201).json({
+      message: 'New Business Added',
+      error: false,
+      business: newBusiness,
+    });
+  }
 
-var updateId = function (req, res, next) {
-	if (!req.body.id) {
-	  id++;
-	  req.body.id = id + '';
-	}
-	next();
- };
+  /**
+   * List all businesses
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static list(req, res) {
+    const { location } = req.query;
+    const { category } = req.query;
 
- router.param('id', function (req, res, next, id) {
-	var business = _.find(businesses, {id: id})
- 
-	if (business) {
-	  req.business = business;
-	  next();
-	} else {
-	  res.send();
-	}
- });
- 
- router.get('/', function (req, res){
-	res.json(businesses);
- });
- 
- router.get('/:id', function (req, res){
-	var business = req.business;
-	res.json(business || {});
- });
- 
- router.post('/', updateId, function (req, res) {
-	var business = req.body;
- 
-	businesses.push(business);
- 
-	res.json(business);
- });
- 
- router.delete('/:id', function (req, res) {
-	var business = _.findIndex(businesses, {id: req.params.id});
-	businesses.splice(business, 1);
- 
-	res.json(req.business);
- });
- 
- router.put('/:id', function (req, res) {
-	var update = req.body;
-	if (update.id) {
-	  delete update.id
-	}
- 
-	var business = _.findIndex(businesses, {id: req.params.id});
-	if (!businesses[business]) {
-	  res.send();
-	} else {
-	  var updatedBusiness = _.assign(businesses[business], update);
-	  res.json(updatedBusiness);
-	}
- });
+    if (location) {
+      const hold = [];
+      db.business.forEach((business) => {
+        if (business.location === location) {
+          hold.push(business);
+        }
+      });
+      if (hold.length === 0) {
+        return res.status(404).json({
+          message: 'No business in this location yet',
+          error: true
+        });
+      }
+      return res.status(200).json(hold);
+    }
 
- router.get('/reviews', function (req, res){
-	res.json(reviews);
- });
+    if (category) {
+      const hold = [];
+      db.business.forEach((business) => {
+        if (business.category === category) {
+          hold.push(business);
+        }
+      });
+      if (hold.length === 0) {
+        return res.status(404).json({
+          message: 'No business for category yet',
+          error: true
+        });
+      }
+      return res.status(200).json(hold);
+    }
 
- router.post('/reviews', updateId, function (req, res) {
-	var review = req.body;
- 
-	reviews.push(review);
- 
-	res.json(review);
- });
- 
- 
+    return res.status(200).json({
+      businesses: db.business,
+      error: false,
+    });
+  }
 
-module.exports = router;
+  /**
+   * Update a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static update(req, res) {
+    if (!req.body.name) {
+      return res.status(400).json({
+        message: 'Business Name Missing',
+        error: true
+      });
+    }
+    const { id } = req.params;
+    let editBusiness;
+    db.business.forEach((bus) => {
+      if (bus.id === parseInt(id, 10)) {
+        bus.name = req.body.name || bus.name;
+        bus.details = req.body.details || bus.details;
+        bus.location = req.body.location || bus.location;
+        bus.category = req.body.category || bus.category;
+
+        editBusiness = bus;
+      }
+    });
+    if (editBusiness) {
+      return res.status(200).json({
+        message: 'Business Updated',
+        error: false,
+        business: editBusiness,
+      });
+    }
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
+
+  /**
+   * Delete a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static deleteById(req, res) {
+    const { id } = req.params;
+
+    db.business.forEach((bus, i) => {
+      if (bus.id === parseInt(id, 10)) {
+        db.business.splice(i, 1);
+        return res.status(200).json({
+          message: 'Business Deleted',
+          error: false,
+        });
+      }
+    });
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
+
+  /**
+   * Get a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getById(req, res) {
+    const { id } = req.params;
+
+    db.business.forEach((bus) => {
+      if (parseInt(id, 10) === bus.id) {
+        return res.status(200).json({
+          message: 'Success',
+          error: false,
+          business: bus,
+        });
+      }
+    });
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
+}
+
+export default BusinessController;
