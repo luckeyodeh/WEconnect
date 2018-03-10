@@ -5,12 +5,6 @@ import app from '../app';
 const { expect } = chai;
 chai.use(chaiHttp);
 
-/*const User = {
-  username: `username${Math.random()}`,
-  email: `user${Math.random()}@user.com`,
-  password: 'passw0RD',
-};*/
-
 const User = {
   id: 1,
   email: 'dummy1@dummy.com',
