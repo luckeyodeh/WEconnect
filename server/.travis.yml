@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - 0.4
-  - 0.6
+  - "node"
+install:
+  - npm install
+script:
+  - npm test
+env:
+  - NODE_ENV=test
+cache:
+  directories:
+    - "node_modules"
