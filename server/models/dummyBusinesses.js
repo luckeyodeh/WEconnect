@@ -18,7 +18,13 @@ db.business = [{
       user: 'dummy2',
       content: 'not good',
       stars: 2
-    }
+    },
+    {
+      reviewId: 3,
+      user: 'dummy3',
+      content: 'not good',
+      stars: 2
+    },
   ]
 },
 {
