@@ -1,139 +1,178 @@
-//import { Z_DEFAULT_COMPRESSION } from 'zlib';
+import db from '../models/dummyBusinesses';
 
-var express = require('express');
-var router = express.Router();
+/**
+ * Business Controller.
+ * @class BusinessController
+ * */
+class BusinessController {
+  /**
+   * Register a new business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static register(req, res) {
+    const {
+      name, details, location, category
+    } = req.body;
 
-	
-global.businesses = [
-	{
-		id: 1,
-		name: 'ABC Ltd',
-		location: 'Lagos'
-	},
-	{
-		id: 2,
-		name: '123 Ltd',
-		location: 'Abuja'
-	},
-	{
-		id: 3,
-		name: 'XYZ Ltd',
-		location: 'Lagos'
-	}
-];
+    if (!req.body.name) {
+      return res.status(400).json({
+        message: 'Business Name Missing',
+        error: true
+      });
+    }
 
-global.reviews = [
-	{
-		name: 'James',
-		post: 'thumbs up'
-	},
-	{
-		name: 'Collins',
-		post: 'thumbs down'
-	}
-];
+    const id = db.business.length + 1;
+    const newBusiness = {
+      id, name, details, category, location
+    };
+    db.business.push(newBusiness);
+    return res.status(201).json({
+      message: 'New Business Added',
+      error: false,
+      business: newBusiness,
+    });
+  }
 
-router.get('/', function(req, res){
-	return res.json({
-		business: global.businesses,
-		error: false
-	});
-});
+  /**
+   * List all businesses
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static list(req, res) {
+    const { location } = req.query;
+    const { category } = req.query;
 
-router.post('/', function(req, res){
-	if (!req.body.name){
-		return res.json({
-			message: 'business name missing',
-			error: true
-		});
-	}
-	global.businesses.push(req.body);
-	return res.json({
-		message: 'success',
-		error: false
-	});
-});
+    if (location) {
+      const hold = [];
+      db.business.forEach((business) => {
+        if (business.location === location) {
+          hold.push(business);
+        }
+      });
+      if (hold.length === 0) {
+        return res.status(404).json({
+          message: 'No business in this location yet',
+          error: true
+        });
+      }
+      return res.status(200).json(hold);
+    }
 
-router.put('/:businessid', function(req, res){
-	for(let i=0; i<global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			global.businesses[i].name = req.body.name;
-			global.businesses[i].hobby = req.body.hobby;
-			return res.json({
-				message: 'success',
-				error: false
-			});
-		}
-	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	});
-});
+    if (category) {
+      const hold = [];
+      db.business.forEach((business) => {
+        if (business.category === category) {
+          hold.push(business);
+        }
+      });
+      if (hold.length === 0) {
+        return res.status(404).json({
+          message: 'No business for category yet',
+          error: true
+        });
+      }
+      return res.status(200).json(hold);
+    }
 
-router.delete('/:businessid', function(req, res){
-	for(let i=0; i<global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			global.businesses.splice(i,1);
-			return res.json({
-				message: 'success',
-				error: false
-			});
-		}
-	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	})
-});
+    return res.status(200).json({
+      businesses: db.business,
+      error: false,
+    });
+  }
 
-router.get('/:businessid', function(req, res){
-	for(let i = 0; i < global.businesses.length; i++){
-		if(global.businesses[i].id === parseInt(req.params.businessid, 10)){
-			return res.json({
-				businesses: global.businesses[i],
-				message: 'success',
-				error: false
-			});
-		}
-	}
-	return res.status(404).json({
-		message: 'business not found',
-		error: true
-	})
-});
+  /**
+   * Update a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static update(req, res) {
+    if (!req.body.name) {
+      return res.status(400).json({
+        message: 'Business Name Missing',
+        error: true
+      });
+    }
+    const { id } = req.params;
+    let editBusiness;
+    db.business.forEach((bus) => {
+      if (bus.id === parseInt(id, 10)) {
+        bus.name = req.body.name || bus.name;
+        bus.details = req.body.details || bus.details;
+        bus.location = req.body.location || bus.location;
+        bus.category = req.body.category || bus.category;
 
-router.get('/reviews', function(req, res){
-	return res.json({
-		reviews: global.reviews,
-		error: false
-	});
-});
+        editBusiness = bus;
+      }
+    });
+    if (editBusiness) {
+      return res.status(200).json({
+        message: 'Business Updated',
+        error: false,
+        business: editBusiness,
+      });
+    }
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
 
-router.post('/reviews', function(req, res){
-	if (!req.body.name){
-		return res.json({
-			message: 'review not posted',
-			error: true
-		});
-	}
-	global.reviews.push(req.body);
-	return res.json({
-		message: 'success',
-		error: false
-	});
-});
+  /**
+   * Delete a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static deleteById(req, res) {
+    const { id } = req.params;
 
-router.get('/', function(req, res){
-	var location = req.query.location;
-});
+    db.business.forEach((bus, i) => {
+      if (bus.id === parseInt(id, 10)) {
+        db.business.splice(i, 1);
+        return res.status(200).json({
+          message: 'Business Deleted',
+          error: false,
+        });
+      }
+    });
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
 
-/*router.get('/', function(req, res) {
-	res.json({'users':'ALL'}); 
-});
+  /**
+   * Get a business
+   *
+   * @param {object} req The request body of the request.
+   * @param {object} res The response body.
+   * @returns {object} res.
+   */
+  static getById(req, res) {
+    const { id } = req.params;
 
-router.get('/:id', function(req, res) {
-	res.json({'user_id':req.params.id}); 
-});*/
+    db.business.forEach((bus) => {
+      if (parseInt(id, 10) === bus.id) {
+        return res.status(200).json({
+          message: 'Success',
+          error: false,
+          business: bus,
+        });
+      }
+    });
+    return res.status(404).json({
+      message: 'Business Not Found',
+      error: true
+    });
+  }
+}
 
-module.exports = router;
+export default BusinessController;

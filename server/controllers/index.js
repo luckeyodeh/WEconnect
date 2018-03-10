@@ -1,6 +1,3 @@
-var express = require('express');
-var router = express.Router();
-  
-router.use('/businesses', require('./businesses'));
-  
-module.exports = router;
+export { default as BusinessController } from './businesses';
+export { default as AuthController } from './auth';
+export { default as ReviewController } from './reviews';
