@@ -15,3 +15,13 @@ env:
 cache:
   directories:
     - "node_modules"
+# blocklist
+branches:
+  except:
+  - server
+
+# safelist
+branches:
+  only:
+  - master
+  
