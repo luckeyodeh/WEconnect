@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - "node"
+- "9"
 before_install:
   - npm i -g npm@version-number
 install: true
@@ -14,12 +15,4 @@ env:
 cache:
   directories:
     - "node_modules"
-# blocklist
-branches:
-  except:
-  - server
 
-# safelist
-branches:
-  only:
-  - master
