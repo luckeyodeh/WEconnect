@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- "node"
+- "9"
+before_install:
+  - npm i -g npm@version-number
+before_script:
+  - npm install
+script:
+  - nodemon --exec babel-node --presets es2015 ./bin/www &
+  - nyc --reporter=html --reporter=text mocha ./test/ --compilers js:babel-register
+env:
+  - NODE_ENV=test
+cache:
+  directories:
+    - "node_modules"
