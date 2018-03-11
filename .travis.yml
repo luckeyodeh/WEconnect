@@ -9,7 +9,7 @@ before_script:
   - npm install
 script:
   - nodemon --exec babel-node --presets es2015 ./bin/www &
-  - npm test
+  - nyc --reporter=html --reporter=text mocha ./test/ --compilers js:babel-register
 env:
   - NODE_ENV=test
 cache:
