@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+- "node"
+before_install:
+  - npm i -g npm@version-number
+install: true
+before_script:
+  - npm install
+script:
+  - nodemon --exec babel-node --presets es2015 ./bin/www &
+  - npm test
+env:
+  - NODE_ENV=test
+cache:
+  directories:
+    - "node_modules"
+# blocklist
+branches:
+  except:
+  - server
+
+# safelist
+branches:
+  only:
+  - master
