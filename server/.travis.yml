@@ -3,7 +3,7 @@ node_js:
 - "node"
 - "9"
 before_install:
-  - npm i -g npm@version-number
+  - npm i -g npm
 install: true
 before_script:
   - npm install
