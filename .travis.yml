@@ -8,7 +8,7 @@ before_script:
   - npm install
 script:
   - nodemon --exec babel-node --presets es2015 ./bin/www &
-  - nyc --reporter=html --reporter=text mocha ./test/ --compilers js:babel-register | ./node_modules/coveralls/bin/coveralls.js
+  - nyc --reporter=html --reporter=text mocha ./test/ --compilers js:babel-register
 env:
   - NODE_ENV=test
 cache:
