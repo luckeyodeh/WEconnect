@@ -14,6 +14,5 @@ env:
 cache:
   directories:
     - "node_modules"
-notifications:
-  webhooks: https://coveralls.io/webhook?repo_token=03C09Hg7paw3OYtGXxZDmEErnd4kPqJaH
+
   
