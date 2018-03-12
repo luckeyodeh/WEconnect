@@ -3,6 +3,7 @@ node_js:
 - "node"
 before_install:
   - npm i -g npm
+install: true
 before_script:
   - npm install
 script:
