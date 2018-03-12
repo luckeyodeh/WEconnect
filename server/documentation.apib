@@ -17,24 +17,100 @@ the users the ability to write reviews about the businesses they have interacted
         - businesses (array[Business])
             
 
-### Get A Single Businesses [GET /businesses/{id}]
+### Get A Single Business [GET /businesses/{id}]
 + Parameter
     + id: `1` - The ID of the Business
 
 + Response 200 (application/json)
     + Attributes
         - Include Business
-            
+
+### Register A New Business [POST /businesses]
++ Response 201 (application/json)
+    + Attributes
+        - businesses (array[Business])
+
+### Update a Businesses [PUT /businesses/{id}]
++ Parameter
+    + id: `1` - The ID of the Business
+
++ Response 200 (application/json)
+    + Attributes
+        - businesses (array[Business])
+
+### Delete a Businesses [DELETE /businesses/{id}]
++ Parameter
+    + id: `1` - The ID of the Business
+
++ Response 200 (application/json)
+    + Attributes
+        - Include Review
+
+
+# Group Reviews
+
+## Reviews Collection [/businesses/{id}/reviews]
+
+### Get A Single Business Reviews [GET /businesses/{id}/reviews]
++ Parameter
+    + id: `1` - The ID of the Business
+
++ Response 200 (application/json)
+    + Attributes
+        - reviews (array[Review])
+
+### Post A Business Review [POST /businesses/{id}/reviews]
++ Parameter
+    + id: `1` - The ID of the Business
+
++ Response 201 (application/json)
+    + Attributes
+        - review (array[Review])
+
+# Group Filter
+
+## Filter Collection [/businesses]
+
+### Filter Businesses By Location [POST /businesses/location/:location]
++ Response 200 (application/json)
+    + Attributes
+        - businesses (array[Business])
+
+### Filter Businesses By Category [POST /businesses/category/:category]
++ Response 200 (application/json)
+    + Attributes
+        - businesses (array[Business])
+
+# Group Authentication
+
+## Authentication Collection [/businesses]
+
+### Create A New User [POST /auth/signup]
++ Response 200 (application/json)
+    + Attributes
+        - user (array[User])
+
+### Login A New User [POST /auth/login]
++ Response 200 (application/json)
+    + Attributes
+        - user (array[User])
 
 # Data Structures
 
 ## Business (object)
 - id: `1` (number) - The ID of the business
 - name: `ABC Ltd` (string) - The Name of the business
+- description: `We are the best at what we do` (string) - The Description of the business
 - location: `Lagos` (string) - The Location of the business
 - category: `Fashion` (string) - The Category of the business
 
 ## Review (object)
 - id: `1` (number) - The ID of the review
-- content: `Good customer service` (string) - The Content of the comment
-- author: `John Doe` (string) - The Auhtor of the comment
+- content: `Good customer service` (string) - The Content of the review
+- user: `John Doe` (string) - The Author of the review
+- rating: `4` (number) - The Rating of the business
+
+## User (object)
+- id: `1` (number) - The ID of the user
+- email: `dummy1@dummy.com` (string) - The Email of the user
+- password: `test` (string) - The Password of the user
