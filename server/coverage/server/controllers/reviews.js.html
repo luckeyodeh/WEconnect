@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.25% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/16</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.25% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/16</span>
+        <span class='fraction'>16/16</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -123,30 +123,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,17 +153,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,27 +189,27 @@ class ReviewController {
    * @param {object} res The response body.
    * @returns {object} res.
    */
-  static addReview(req, res) <span class="cstat-no" title="statement not covered" >{</span>
-    const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-    const { user, content, stars } = <span class="cstat-no" title="statement not covered" >req.body;</span>
+  static addReview(req, res) {
+    const { id } = req.params;
+    const { user, content, stars } = req.body;
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    db.business.forEach(<span class="fstat-no" title="function not covered" >(</span>bus) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (parseInt(id, 10) === bus.id) {</span>
-        const reviewId = <span class="cstat-no" title="statement not covered" >bus.reviews.length + 1;</span>
-        const newReview = <span class="cstat-no" title="statement not covered" >{</span>
+    db.business.forEach((bus) =&gt; {
+      if (parseInt(id, 10) === bus.id) {
+        const reviewId = bus.reviews.length + 1;
+        const newReview = {
           reviewId, user, content, stars
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        bus.reviews.push(newReview);</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(201).json({</span>
+        bus.reviews.push(newReview);
+        return res.status(201).json({
           newReview,
           error: false,
         });
       }
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return res.status(404).json({</span>
+    return res.status(404).json({
       message: 'Business Not Found',
       error: true
     });
@@ -222,17 +222,17 @@ class ReviewController {
    * @returns {object} res.
    */
   static listReview(req, res) {
-    const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
+    const { id } = req.params;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    db.business.forEach(<span class="fstat-no" title="function not covered" >(</span>bus) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (parseInt(id, 10) === bus.id) {</span>
-<span class="cstat-no" title="statement not covered" >        res.json({</span>
+    db.business.forEach((bus) =&gt; {
+      if (parseInt(id, 10) === bus.id) {
+        res.json({
           reviews: bus.reviews,
           error: false,
         });
       }
     });
-<span class="cstat-no" title="statement not covered" >    return res.status(404).json({</span>
+    return res.status(404).json({
       message: 'Business reviews not found',
       error: true,
     });
@@ -247,7 +247,7 @@ export default ReviewController;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 13:34:29 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 16:20:29 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
