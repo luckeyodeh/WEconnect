@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId'
     });
     Business.hasMany(models.Review, {
-      foreignKey: 'reviewId'
+      foreignKey: 'reviewId',
+      as: 'reviews'
     });
   };
   return Business;
