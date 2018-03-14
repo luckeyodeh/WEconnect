@@ -1,13 +1,31 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Business = sequelize.define('Business', {
-    name: DataTypes.STRING,
-    details: DataTypes.STRING,
-    location: DataTypes.STRING,
-    category: DataTypes.STRING
-  }, {});
-  Business.associate = function(models) {
+  const Business = sequelize.define('Business', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    details: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  });
+  Business.associate = (models) => {
     // associations can be defined here
+    Business.belongsTo(models.User, {
+      foreignKey: 'userId'
+    });
+    Business.hasMany(models.Review, {
+      foreignKey: 'reviewId'
+    });
   };
   return Business;
 };
