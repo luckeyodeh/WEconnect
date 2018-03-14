@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     });
     Review.belongsTo(models.Business, {
       foreignKey: 'businessId',
-      onDelete: 'CASADE'
     });
   };
   return Review;
