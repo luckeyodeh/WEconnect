@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
   Business.associate = (models) => {
     // associations can be defined here
     Business.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
+      onDelete: 'CASCADE'
     });
     Business.hasMany(models.Review, {
       foreignKey: 'reviewId',
