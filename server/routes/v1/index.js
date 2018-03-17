@@ -1,10 +1,10 @@
 import express from 'express';
 // import DumBusinessController from '../../controller/businessController';
-import auth from '../middleware/auth';
+import auth from '../../middleware/auth';
 // import DumUserController from '../../controller/userController';
-import UserController from '../controller/user';
-import BusinessController from '../controller/businesses';
-import ReviewController from '../controller/reviews';
+import UserController from '../../controller/user';
+import BusinessController from '../../controller/business';
+import ReviewController from '../../controller/review';
 // import DumReviewController from '../../controller/reviewController';
 
 const router = express.Router();
@@ -13,10 +13,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.redirect('/api/v1');
 });
-// Redirect '/' to '/api-docs'
-router.get('/api/v1', (req, res) => {
-  res.redirect('/api-docs');
-});
+
 // POST register business
 router.post('/api/v1/businesses', auth, BusinessController.register);
 // PUT update business
