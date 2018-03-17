@@ -1,4 +1,5 @@
 body{
+    font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
 }
 .navbar{
@@ -15,6 +16,10 @@ body{
 }
 .menu:hover{
     color: #b20000 !important;
+}
+.menu:active, .menu:focus{
+    background-color: #b20000;
+    color: #F0F0F0;
 }
 .sign-btn-1{
     margin-right: 10px;
