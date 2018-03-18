@@ -44,7 +44,7 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon --exec babel-node ./dist/server.js",
     "dev-start": "nodemon --exec babel-node server/server.js",
     "build": "babel server -d ./dist --ignore server/dist",
     "unmigrate": "node ./node_modules/sequelize-cli/lib/sequelize db:migrate:undo:all",

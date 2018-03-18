@@ -49,7 +49,7 @@ export default class ReviewController {
    */
   static addReview(req, res) {
     const { content, star } = req.body;
-    const userId = 2;
+    const userId = req;
     const businessId = req.params.id;
     Business.findById(businessId).then((business) => {
       if (!business) {

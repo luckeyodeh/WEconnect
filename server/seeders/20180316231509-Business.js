@@ -1,49 +1,22 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Businesses', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      details: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      location: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      category: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-      },
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Businesses');
-  }
+  up: (queryInterface, Sequelize) =>
+    queryInterface.bulkInsert('Businesses', [{
+      userId: 1,
+      name: 'Andela',
+      details: 'Andela invests in Africa\'s most talented developers and integrates them into the world\'s best tech companies',
+      location: 'lagos',
+      category: 'Ict',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    }, {
+      userId: 2,
+      name: 'Flutterwave',
+      details: 'Modern payments infrastructure to power Africa’s digital economy.',
+      location: 'abuja',
+      category: 'fin-tech',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    }]),
+
+  down: (queryInterface, Sequelize) => queryInterface.bulkDelete('Businesses')
 };

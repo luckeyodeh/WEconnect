@@ -1,50 +1,19 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Reviews', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      content: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      star: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: { min: 1, max: 5 }
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-      },
-      businessId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        allowNull: false,
-        references: {
-          model: 'Businesses',
-          key: 'id',
-        },
-      },
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Reviews');
-  }
+  up: (queryInterface, Sequelize) => queryInterface.bulkInsert('Reviews', [{
+    userId: 1,
+    businessId: 1,
+    content: 'Amazing tech company',
+    star: 4,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }, {
+    userId: 2,
+    businessId: 2,
+    content: 'Great company, they make payment painless',
+    star: 5,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }]),
+
+  down: (queryInterface, Sequelize) => queryInterface.bulkDelete('Reviews')
 };

@@ -4,11 +4,13 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import index from '../server/routes/v1/index';
+import index from './routes/v1/index';
 
 const app = express();
 
+
 app.use(cors({ credentials: true, origin: true }));
+
 
 const port = process.env.PORT || '3000';
 app.set('port', port);

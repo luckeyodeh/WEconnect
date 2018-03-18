@@ -1,0 +1,3 @@
+dist/
+server/models/index.js
+server/migrations/
