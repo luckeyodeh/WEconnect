@@ -1,5 +1,7 @@
 body{
     background-color: #D8D8D8;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
 }
 .signin{
     margin-top: 40px;
