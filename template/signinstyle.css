@@ -1,8 +1,10 @@
 body{
-    background-color: #b20000;
+    background-color: #D8D8D8;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
 }
 .signin{
-    margin-top: 5em;
+    margin-top: 40px;
     background-color: white;
     padding-top: 3em;
     padding-bottom: 3em;
@@ -22,9 +24,8 @@ body{
 }
 .sign-a{
     text-align: center;
-    margin-top: 54px;
+    margin-top: 25px;
     margin-bottom: -48px;
-    background-color: #D0D0D0;
     padding: 22px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -69,6 +70,10 @@ body{
 .p-forgot{
     text-align: center;
     margin-top: 10px;
+}
+.p-forgot:hover{
+    color: #b20000;
+    cursor: pointer;
 }
 input:invalid {
     border-color: red;
