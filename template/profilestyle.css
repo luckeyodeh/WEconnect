@@ -1,6 +1,5 @@
-body{
-    font-family: 'Source Sans Pro', sans-serif;
-    height: 100%;
+.container{
+
 }
 .navbar{
     position: fixed;
@@ -27,9 +26,6 @@ body{
 .edit-btn{
     width: 100px;
     margin-top: 20px;
-}
-.edit-b{
-    color: #b20000;
 }
 .p-image{
     width: 12em;
@@ -73,15 +69,12 @@ body{
     border-bottom: 1px solid lightgrey;
     padding-top: 60px;
     padding-bottom: 50px;
-    margin: 0;
 }
 .f-bottom{
     padding-top: 60px;
     padding-bottom: 50px;
-    margin: 0;
 }
 .f-name{
-    margin-left: 1.1em;
     background-color: #b20000;
     color: white;
     padding: 5px;
