@@ -5,16 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="stylesheet" type="text/css" href="registerstyle.css">
         <script type='text/javascript' src='script.js'></script>
-        <title>Register</title>
+        <title>Edit Your Profile</title>
     </head> 
     <body>
-        <div class="header">
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">WEconnect</a>
-                <h6>For Business Owners</h6>
+        <div>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand logo" href="index.html">WEconnect</span></a>
             </nav>
         </div>
         <div class="r-body">
@@ -23,56 +26,69 @@
             
            </div>
             <div>
-                    <form>
-                        <div class="r-form">
-                                <label for="textInput">Country</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Business Name</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Address 1</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Address 2</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">City</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">State</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Zip</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Phone</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Web Address</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Email</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <div class="r-form">
-                                <label for="textInput">Category</label>
-                                <input id="textInput" class="custom" size="32" type=""/>
-                        </div>
-                        <input class="r-form b-form" type="submit" value="Edit Profile">
+                <form>
+                    <div class="r-form">
+                        <label for="textInput">First Name:</label>
+                        <input id="textInput" class="custom" size="32" type="text"/>
+                    </div>
+                    <div class="r-form">
+                        <label for="textInput">Last Name:</label>
+                        <input id="textInput" class="custom" size="32" type="text"/>
+                    </div>
+                    <div class="r-form">
+                        <label for="textInput">Change Password:</label>
+                        <input id="textInput" class="custom" size="32" type="password"/>
+                    </div>
+                    <div class="r-form">
+                        <label for="textInput">Phone:</label>
+                        <input id="textInput" class="custom" size="32" type="tel"/>
+                    </div>
+                    <div class="r-form">
+                        <label for="textInput">Email:</label>
+                        <input id="textInput" class="custom" size="32" type="email"/>
+                    </div>
+                    <div class="r-form">
+                        <label for="textInput">Profile Photo:</label>
+                        <input id="textInput" class="custom i-file" size="32" type="file" required/>
+                    </div>
+                    <input class="r-form b-form" type="submit" value="Edit Profile">
                 </form>
            </div>
         </div>
-        
+        <div class="footer">
+                <div class="row f1 f-top">
+                    <div class="col-md-3">
+                        <h2><span class="f-name">WEconnect</span></h2>
+                    </div>
+                    <div class="col-md-3"> 
+                        <p class="f-address"><i class="fas fa-map-marker" style="color: #b20000"></i> 4 Kazzem Oyofo Close</p>
+                        <p class="f-city">Ajah, Lagos State</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="f-phone"><i class="fas fa-phone" style="color: #b20000"></i> 070 3221 6073</p>   
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fab fa-facebook-f f-media f-facebook"></i>
+                        <i class="fab fa-twitter f-media f-twitter"></i>
+                        <i class="fab fa-google-plus-g f-media f-google"></i>
+                        <i class="fab fa-linkedin-in f-media f-link"></i>
+                    </div>
+                </div>
+                    <div class="row f1 f-bottom">
+                        <div class="col-md-3">
+    
+                        </div>
+                        <div class="col-md-3">
+                            &copy; 2018 All Rights Reserved
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#"><p class="f-privacy">Privacy Policy</p></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#"><p class="f-terms">Terms of Use</p></a>
+                        </div>
+                    </div>
+                </div>
         <script type='text/javascript' src='script.js'></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
