@@ -1,4 +1,5 @@
 body{
+    font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
 }
 .navbar{
@@ -16,6 +17,13 @@ body{
 .menu:hover{
     color: #b20000 !important;
 }
+/*.menu:active, .menu:focus{
+    background-color: #b20000 !important;
+    color: #F0F0F0 !important;
+}*/
+.menubg{
+    color: #707070;
+}
 .sign-btn-1{
     margin-right: 10px;
     background-color: white;
@@ -26,7 +34,7 @@ body{
 }
 .bg-image{
     width: 100%;
-    height: 636px; 
+    height: 636px;
 }
 .background-words{
     text-align: center;
@@ -49,14 +57,14 @@ body{
     width: 80%;
 }
 .search-bar{
-    width: 28em !important;
+    width: 11em !important;
     border-radius: 0;
     color: #b20000 !important;
 }
 .search-btn{
     padding-left: 2em;
     padding-right: 2em;
-    height: 47px;
+    height: 48px;
     display: flex;
     justify-content: center;
     border-radius: 0;
@@ -84,17 +92,10 @@ body{
     margin-top: 36px;
     margin-bottom: 36px;
 }
-.browse{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 45px;
-}
-.category{
-    padding-right: 20px;  
-}
-.location{
-    padding-left: 20px;
+.l-business{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 1em;
 }
 .biz-icons{
     font-size: 3.5em;
@@ -141,12 +142,15 @@ body{
     border-bottom: 1px solid lightgrey;
     padding-top: 60px;
     padding-bottom: 50px;
+    margin: 0;
 }
 .f-bottom{
     padding-top: 60px;
     padding-bottom: 50px;
+    margin: 0;
 }
 .f-name{
+    margin-left: 1.1em;
     background-color: #b20000;
     color: white;
     padding: 5px;
@@ -184,7 +188,35 @@ body{
     .b-icons{
         text-align: center;
         margin-left: 0;
-    }   
+    }
+    .section-5>h4{
+        text-align: center;
+    }
+    .section-5a{
+        flex-direction: column;
+    }
+    .b-desc{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .b-image{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media(max-width:549px){
+    .search-bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-btn{
+        position: absolute;
+        margin-top: 71px;
+    }
 }
 input::-webkit-input-placeholder {
     color: #b20000 !important;
@@ -201,3 +233,4 @@ input::-webkit-input-placeholder {
   input::placeholder {
     color: #b20000 !important;
   }
+  
