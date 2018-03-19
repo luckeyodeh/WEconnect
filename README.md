@@ -5,9 +5,28 @@ Weconnect provides a platform that brings businesses and individuals together. T
 
 ## Getting Started
 
+### 
+
 1. Clone this repo to your computer using `git clone` on your terminal
 
     `git clone https://github.com/luckeyodeh/WEconnect.git`
 
-2. Open on your local browser 
+2. Open the `index.html` on your local browser by double clicking on it or visit on 
 
+    https://luckeyodeh.github.io/WEconnect/index.html
+
+### API
+
+1. Clone this repo to your computer using `git clone` on your terminal
+
+    `git clone https://github.com/luckeyodeh/WEconnect.git`
+
+2. Install all dependencies by running `npm install` from your terminal once you are in
+
+    the server folder
+
+    `$ npm install`
+
+3. Start the server by running `npm start` from your terminal
+
+    `$ npm start`
