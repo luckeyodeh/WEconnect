@@ -1,11 +1,19 @@
 {
   "development": {
-    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
-  },
+      "username": "aukhulpz",
+      "password": "8Xvj-QxVSwDcQVi72LhZDU59_e43hjoC",
+      "database": "aukhulpz",
+      "host": "baasu.db.elephantsql.com",
+      "dialect": "postgres"
+   },
   "test": {
-    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
+    "username": "aukhulpz",
+    "password": "8Xvj-QxVSwDcQVi72LhZDU59_e43hjoC",
+    "database": "aukhulpz",
+    "host": "baasu.db.elephantsql.com",
+    "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
+    "use_env_variable": "postgres://aukhulpz:8Xvj-QxVSwDcQVi72LhZDU59_e43hjoC@baasu.db.elephantsql.com:5432/aukhulpz"
   }
 }
