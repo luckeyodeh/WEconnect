@@ -1,0 +1,11 @@
+{
+  "development": {
+    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
+  },
+  "test": {
+    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
+  },
+  "production": {
+    "use_env_variable": "postgres://kqfxwytk:W45onNP547czkw72Mwnl_JTjBUvCz1K6@baasu.db.elephantsql.com:5432/kqfxwytk"
+  }
+}
