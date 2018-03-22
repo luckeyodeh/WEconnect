@@ -1,9 +1,43 @@
+.details{
+    margin-top: 5%;
+}
 .top-image{
-    height: 10em;
-    width: 20em;
+    height: 24em;
+    width: 36em;
 }
 .user-image{
     height: 5em;
     width: 5em;
     border-radius: 50%;
+}
+.col-md-6>p{
+    font-size: 1.3em;
+}
+.b-details{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.reviews{
+    margin-top: 10%;
+    font-size: 2em;
+}
+.b-review{
+    margin-top: 5%;
+}
+.col-sm-3>p{
+    margin-left: 1em;
+}
+.review-form{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.post-review{
+    font-size: 1.5em;
+}
+.form-control{
+    width: 51%;
+}
+.star{
+    color: #daa520;
 }
