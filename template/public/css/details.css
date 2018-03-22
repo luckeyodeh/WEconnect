@@ -3,30 +3,38 @@
 }
 .top-image{
     height: 24em;
-    width: 36em;
+    width: 29em;
 }
 .user-image{
     height: 5em;
     width: 5em;
     border-radius: 50%;
 }
-.col-md-6>p{
-    font-size: 1.3em;
+.col-lg-6>p{
+    font-size: 1.7em;
 }
 .b-details{
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 10%;
+}
+.b-info{
+    margin-left: 2%;
+    margin-right: 2%;
 }
 .reviews{
     margin-top: 10%;
     font-size: 2em;
+    margin-left: 10%;
+}
+.b-rev{
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .b-review{
     margin-top: 5%;
 }
 .col-sm-3>p{
     margin-left: 1em;
+    margin-top: 5%;
 }
 .review-form{
     margin-top: 5%;
@@ -40,4 +48,22 @@
 }
 .star{
     color: #daa520;
+}
+@media(max-width: 991px){
+    .top-image{
+        display:flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media(max-width:767px){
+    .form-control{
+        width: 15em;
+    }
+}
+@media(max-width: 511px){
+    .top-image{
+        height: 15em;
+        width: 18em;
+    }
 }
