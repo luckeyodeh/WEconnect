@@ -2,7 +2,7 @@
   "name": "weconnect",
   "version": "1.0.0",
   "description": "Weconnect provides a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to write reviews about the businesses they have interacted with.",
-  "main": "app.js",
+  "main": "./server/app.js",
   "dependencies": {
     "babel-register-cli": "^5.0.0",
     "bcrypt": "^1.0.3",
@@ -43,10 +43,9 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node --presets es2015 ./bin/www",
+    "start": "nodemon ./server/app.js",
     "start:dev": "nodemon .bin/www",
     "build": "babel . -d ./dist --copy-files --ignore ./node_modules",
-    "postinstall": "npm run build",
     "test": "nyc --reporter=html --reporter=text mocha ./server/test/ --exit --compilers js:babel-register",
     "test-watch": "nodemon --exec \"npm test\"",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
