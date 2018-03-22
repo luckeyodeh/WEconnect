@@ -1,0 +1,9 @@
+.top-image{
+    height: 10em;
+    width: 20em;
+}
+.user-image{
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+}
