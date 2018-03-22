@@ -19,23 +19,30 @@ Testing is done using:
 
 ## Getting Started
 
+### Prerequisite
+
+1. Make sure `node` and `npm` are installed on your device. If not install them by visiting the Node.js website https://nodejs.org/en/download and download the latest version appropriate for your kind of device.
+
+2. Make sure `postgreSql` is also installed on your device. Visit their webiste on https://www.postgresql.org/download/ and download the latest version appropriate for your kind of device. If you  decide to use the online version, `ElephantSQL` is good to start with. You can visit the website here https://www.elephantsql.com/
+
 ### View
 
 1. Clone this repo to your computer using `git clone` on your terminal
 
     `git clone https://github.com/luckeyodeh/WEconnect.git`
 
-2. Open the `index.html` on your local browser by double clicking on it or visit on 
+2. Open the `index.html` on your local browser by double clicking on it or visit    on 
 
     https://luckeyodeh.github.io/WEconnect/index.html
 
 ### API
 
+
 1. Clone this repo to your computer using `git clone` on your terminal
 
     `git clone https://github.com/luckeyodeh/WEconnect.git`
 
-2. Install all dependencies by running `npm install` from your terminal once you are in
+2. Install all dependencies by running `npm install` from your terminal once you    are in
 
     the server folder
 
