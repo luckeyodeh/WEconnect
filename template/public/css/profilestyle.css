@@ -1,122 +1,133 @@
-body{
+body {
     font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
 }
-.navbar{
+.navbar {
     position: fixed;
     width: 100%;
     z-index: 2;
 }
-.logo{
+.logo {
     margin-left: 30px;
     font-size: 2em;
     background-color: #b20000;
     color: white !important;
     padding: 5px;
 }
-.menu:hover{
+.menu:hover {
     color: #b20000 !important;
 }
-.profile{
+.profile {
     padding-top: 100px;
 }
-.edit-profile{
+.edit-profile {
     display: block;
     text-align: center;
 }
-.edit-btn{
+.edit-btn {
     width: 100px;
     margin-top: 20px;
 }
-.edit-b{
+.edit-b {
     color: #b20000;
 }
-.p-image{
+.p-image {
     width: 12em;
     height: 12em;
     border-radius: 50%;
 }
-.r-businesses{
+.r-businesses {
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.r-businesses>h2{
+.r-businesses > h2 {
     color: #b20000;
 }
-.business{
+.business {
     display: flex;
     flex-direction: row;
     background-color: white;
     margin-top: 10px;
 }
-.p-image{
+.p-image {
     width: 14em;
     height: 12.3em;
 }
-.b-image{
+.b-image {
     width: 11em;
     height: 12.3em;
 }
-.p-desc{
+.p-desc {
     margin-left: 1.5em;
 }
-.footer{
+.footer {
     background-color: black;
     bottom: 0;
     width: 100%;
     color: lightgrey;
 }
-.f1{
+.f1 {
     margin-left: 2em;
 }
-.f-top{
+.f-top {
     border-bottom: 1px solid lightgrey;
     padding-top: 60px;
     padding-bottom: 50px;
     margin: 0;
 }
-.f-bottom{
+.f-bottom {
     padding-top: 60px;
     padding-bottom: 50px;
     margin: 0;
 }
-.f-name{
+.f-name {
     margin-left: 1.1em;
     background-color: #b20000;
     color: white;
     padding: 5px;
 }
-.f-media{
+.f-media {
     cursor: pointer;
 }
-.f-media:hover{
+.f-media:hover {
     color: #b20000;
 }
-.f-google, .f-link, .f-twitter{
+.f-google, .f-link, .f-twitter {
     margin-left: 8px;
 }
-.f-address{
+.f-address {
     margin-left: 6px;
 }
-.f-city{
+.f-city {
     margin-left: 22px;
 }
-.f-terms, .f-privacy{
+.f-terms, .f-privacy {
     color: lightgrey;
 }
-.f-terms:hover, .f-privacy:hover{
+.f-terms:hover, .f-privacy:hover {
     color: #b20000;
 }
-.col-md-3>a{
+.col-md-3 > a {
     text-decoration: none;
 }
-@media(max-width: 767px){
-    .footer{
+@media(max-width: 767px) {
+    .footer {
         text-align: center;
     }
-    .profile{
+    .profile {
         display: block;
         text-align: center;
     }
-
+}
+@media(max-width: 620px) {
+    .business {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3em;
+    }
+    .r-businesses > h2 {
+        text-align: center;
+    }
 }

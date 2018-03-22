@@ -1,9 +1,9 @@
-body{
+body {
     background-color: #D8D8D8;
     font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
 }
-.signin{
+.signin {
     margin-top: 40px;
     background-color: white;
     padding-top: 3em;
@@ -15,14 +15,14 @@ body{
     max-width: 27em;
     border-radius: 5px;
    }
-.head-a{
+.head-a {
     text-align: center;
     margin-bottom: 30px;
 }
-.head-a > p{
+.head-a > p {
     font-size: 2rem;
 }
-.sign-a{
+.sign-a {
     text-align: center;
     margin-top: 25px;
     margin-bottom: -48px;
@@ -30,15 +30,15 @@ body{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.sign-a-1{
+.sign-a-1 {
     color: #b20000;
 }
-.signin-form{
+.signin-form {
     width: 83%;
     margin-left: auto;
     margin-right: auto;
 }
-.box{
+.box {
     border: 1px solid rgba(0,0,0,.2);
     padding: 6.5px;
     background-color: rgba(255,255,255,1);
@@ -48,7 +48,7 @@ body{
     margin-bottom: 20px;
     border-radius: 5px;
 }
-.form-control{
+.form-control {
     background-color: transparent;
     border: none;
 }
@@ -58,20 +58,19 @@ body{
     border: none;
     box-shadow: none;
 }
-.i-icon{
+.i-icon {
     
     left: 20.5em;
 }
-
-.btn{
+.btn {
     width: 100%;
     padding: 12px;
 }
-.p-forgot{
+.p-forgot {
     text-align: center;
     margin-top: 10px;
 }
-.p-forgot:hover{
+.p-forgot:hover {
     color: #b20000;
     cursor: pointer;
 }
