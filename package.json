@@ -43,7 +43,7 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node --presets es2015 ./bin/www",
+    "start": "nodemon --exec babel-node app.js --presets es2015 ./bin/www",
     "start:dev": "nodemon .bin/www",
     "build": "babel . -d ./dist --copy-files --ignore ./node_modules",
     "postinstall": "npm run build",
