@@ -1,27 +1,27 @@
-body{
+body {
     font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
 }
-.navbar{
+.navbar {
     position: fixed;
     width: 100%;
     z-index: 2;
 }
-.logo{
+.logo {
     margin-left: 30px;
     font-size: 2em;
     background-color: #b20000;
     color: white !important;
     padding: 5px;
 }
-.menu:hover{
+.menu:hover {
     color: #b20000 !important;
 }
-.r-body{
+.r-body {
     padding-top: 7em;
     padding-bottom: 5em;
 }
-.r-form{
+.r-form {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -29,84 +29,84 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-.r-text{
+.r-text {
     text-align: center;
 }
 .r-text > h1 {
     color: #b20000;
 }
-.b-form{
+.b-form {
     margin-top: 60px;
     display: flex;
     align-items: center;
     background-color: #b20000;
     color: white;
 }
-input{
+input {
     padding-left: 10px;
 }
-#categoryInput{
+#categoryInput {
     height: 40px;
     padding-left: 10px;
 }
 input:invalid {
     border-color: red;
 }
-.i-file{
+.i-file {
     margin-left: -9px;
 }
-.footer{
+.footer {
     background-color: black;
     bottom: 0;
     width: 100%;
     color: lightgrey;
 }
-.f1{
+.f1 {
     margin-left: 2em;
 }
-.f-top{
+.f-top {
     border-bottom: 1px solid lightgrey;
     padding-top: 60px;
     padding-bottom: 50px;
     margin: 0;
 }
-.f-bottom{
+.f-bottom {
     padding-top: 60px;
     padding-bottom: 50px;
     margin: 0;
 }
-.f-name{
+.f-name {
     margin-left: 1.1em;
     background-color: #b20000;
     color: white;
     padding: 5px;
 }
-.f-media{
+.f-media {
     cursor: pointer;
 }
-.f-media:hover{
+.f-media:hover {
     color: #b20000;
 }
-.f-google, .f-link, .f-twitter{
+.f-google, .f-link, .f-twitter {
     margin-left: 8px;
 }
-.f-address{
+.f-address {
     margin-left: 6px;
 }
-.f-city{
+.f-city {
     margin-left: 22px;
 }
-.f-terms, .f-privacy{
+.f-terms, .f-privacy {
     color: lightgrey;
 }
-.f-terms:hover, .f-privacy:hover{
+.f-terms:hover, .f-privacy:hover {
     color: #b20000;
 }
-.col-md-3>a{
+.col-md-3 > a {
     text-decoration: none;
 }
-@media(max-width: 767px){
-    .footer{
+@media(max-width: 767px) {
+    .footer {
         text-align: center;
     }
 

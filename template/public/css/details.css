@@ -1,69 +1,70 @@
-.details{
+.details {
     margin-top: 5%;
 }
-.top-image{
+.top-image {
     height: 24em;
     width: 29em;
 }
-.user-image{
+.user-image {
     height: 5em;
     width: 5em;
     border-radius: 50%;
 }
-.col-lg-6>p{
+.col-lg-6 > p {
     font-size: 1.7em;
 }
-.b-details{
+.b-details {
     margin-top: 10%;
 }
-.b-info{
+.b-info {
     margin-left: 2%;
     margin-right: 2%;
 }
-.reviews{
+.reviews {
     margin-top: 10%;
     font-size: 2em;
     margin-left: 10%;
 }
-.b-rev{
+.b-rev {
     margin-left: 10%;
     margin-right: 10%;
 }
-.b-review{
+.b-review {
     margin-top: 5%;
 }
-.col-sm-3>p{
+.col-sm-3>p {
     margin-left: 1em;
     margin-top: 5%;
 }
-.review-form{
+.review-form {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.post-review{
+.post-review {
     font-size: 1.5em;
 }
-.form-control{
+.form-control {
     width: 51%;
 }
 .star{
     color: #daa520;
 }
-@media(max-width: 991px){
-    .top-image{
+@media(max-width: 991px) {
+    .top-image {
         display:flex;
         margin-left: auto;
         margin-right: auto;
     }
 }
-@media(max-width:767px){
-    .form-control{
+@media(max-width:767px) {
+    .form-control {
         width: 15em;
     }
 }
-@media(max-width: 511px){
-    .top-image{
+@media(max-width: 511px) {
+    .top-image {
         height: 15em;
         width: 18em;
+        margin-top: 3em;
     }
 }
