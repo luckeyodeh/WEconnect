@@ -16,11 +16,17 @@
     margin-right: 4em;
     margin-bottom: 4em
 }
+
 @media(max-width:991px){
     .thumbs{
         width: 18em;
         display: flex;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+@media(max-width:970px){
+    .cata{
+        margin-top: 14em;
     }
 }

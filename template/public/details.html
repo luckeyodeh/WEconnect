@@ -7,11 +7,13 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/profilestyle.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/details.css">
         <script type='text/javascript' src='script.js'></script>
-        <title>Profile</title>
-    </head> 
+        <title>WEconnect</title>
+    </head>
     <body>
+        
         <div>
             <nav class="navbar navbar-expand-sm navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,64 +33,69 @@
                             <a class="nav-link menu" href="register.html">Register</a>
                         </li>
                     </ul>
+                   
                 </div>
             </nav>
-        </div>           
-        <div class="container">
-            <div class="row profile">
-                <div class="col-md-4 edit-profile">
-                    <img class="p-image" src="images/nobody.jpg" alt="profile pic">
-                    <button class="btn btn-outline-danger edit-btn" type="submit"><a class="edit-b" href="update.html">Edit Profile</a></button>
-                </div>
-                <div class="col-md-4">
-                    <h1>John Doe</h1>
-                    <h6>test@test.com</h6>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h3>50</h3>
-                            <p>Reviews</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <h3>50</h3>
-                            <p>Comments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="r-businesses">
-                <!--delete business would be applied to each business-->
-                <h2><i class="fas fa-address-card"></i> Registered Businessess</h2>
-                <div class="row">
-                    <div class="col-md-6 business">
-                        <div>
-                            <img class="b-image" src="images/company.png">
-                        </div>
-                        <div class="p-desc">
-                            <h4>Good People Ltd</h4>
-                            <p>Carpentry and woodworks</p>
-                            <p>30 Reviews</p>
-                            <p><i class="fas fa-star"></i> 4/5</p>
-                            <button class="btn btn-outline-danger" type="submit"><a class="edit-b" href="edit.html">Edit Business</a></button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 business">
-                        <div>
-                            <img class="b-image" src="images/company.png">
-                        </div>
-                        <div class="p-desc">
-                            <h4>Impression Ltd</h4>
-                            <p>Restaurants and home delivery</p>
-                            <p>20 Reviews</p>
-                            <p><i class="fas fa-star"></i> 4/5</p>
-                            <button class="btn btn-outline-danger" type="submit"><a class="edit-b" href="edit.html">Edit Business</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="footer">
+        <div class="restofbody">
+            <div>
+                <img class="top-image" src="images/bg.jpg" alt="">
+                <p>We are located in a central area well within the heart of the city for easy assess. We provide you the best servive and care a lot about your wellbeing. Our customers are always satisfied with our services. Visit us today and you will have a positive story to tell.</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="col-sm-4">
+                    <p>22 Likes</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>112 Visits</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="user-image" src="images/bg.jpg" alt="">
+                    <p>John</p>
+                </div>
+                <div class="col-sm-9">
+                    <p>They are very good at what they do. Awesome experience</p>
+                    <div class="rate">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-3">
+                        <img class="user-image" src="images/bg.jpg" alt="">
+                        <p>Lucky</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>They are very good at what they do. Awesome experience</p>
+                        <div class="rate">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Write your review</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </form>
+            <div class="footer">
                 <div class="row f1 f-top">
                     <div class="col-md-3">
                         <h2><span class="f-name">WEconnect</span></h2>
@@ -106,8 +113,8 @@
                         <i class="fab fa-google-plus-g f-media f-google"></i>
                         <i class="fab fa-linkedin-in f-media f-link"></i>
                     </div>
-            </div>
-            <div class="row f1 f-bottom">
+                </div>
+                <div class="row f1 f-bottom">
                     <div class="col-md-3">
 
                     </div>
@@ -120,6 +127,7 @@
                     <div class="col-md-3">
                        <a href="#"><p class="f-terms">Terms of Use</p></a>
                     </div>
+                </div>
             </div>
         </div>
         <script type='text/javascript' src='script.js'></script>
