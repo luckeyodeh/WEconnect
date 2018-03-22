@@ -1,0 +1,236 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+}
+.logo {
+    margin-left: 30px;
+    font-size: 2em;
+    background-color: #b20000;
+    color: white !important;
+    padding: 5px;
+}
+.menu:hover {
+    color: #b20000 !important;
+}
+.menubg {
+    color: #707070;
+}
+.catalogue {
+    margin-right: 10px;
+    background-color: white;
+}
+.sign-btn-1 {
+    margin-right: 10px;
+    background-color: white;
+}
+.sign-btn-2 {
+    background-color: white;
+}
+.bg-image {
+    width: 100%;
+    height: 636px;
+}
+.background-words {
+    text-align: center;
+    margin-top: -23em;
+    color: #b20000;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    position: relative;
+}
+.search-box {
+    width: 50%;
+}
+.form-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.search-bar {
+    width: 11em !important;
+    border-radius: 0;
+    color: #b20000 !important;
+}
+.search-btn {
+    padding-left: 2em;
+    padding-right: 2em;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+}
+.restofbody {
+    background-color: #F0F0F0;
+    position: absolute;
+    width: 100%;
+    margin-top: 13%;
+}
+.motto {
+    margin-top: 5em;
+    width: 56%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.motto-text {
+    text-align: center;
+    margin-top: -2em;
+}
+.businesses {
+    background-color: white;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+.l-business {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 1em;
+}
+.biz-icons {
+    font-size: 3.5em;
+}
+.b-icons {
+    font-size: 1em;
+    margin-top: 50px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.section-5 {
+    margin-left: 4em;
+    margin-right: 4em;
+    margin-bottom: 10em;
+}
+.section-5 > h4 {
+    margin-left: -14px;
+    color: #b20000;
+}
+.section-5a {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.b-image {
+    width: 11em;
+    height: 12.3em;
+    margin-left: -14px;
+}
+.b-desc {
+    margin-left: 12em;
+    position: absolute;
+}
+.footer {
+    background-color: black;
+    bottom: 0;
+    width: 100%;
+    color: lightgrey;
+}
+.f1 {
+    margin-left: 2em;
+}
+.f-top {
+    border-bottom: 1px solid lightgrey;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    margin: 0;
+}
+.f-bottom {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    margin: 0;
+}
+.f-name {
+    margin-left: 1.1em;
+    background-color: #b20000;
+    color: white;
+    padding: 5px;
+}
+.f-media {
+    cursor: pointer;
+}
+.f-media:hover {
+    color: #b20000;
+}
+.f-google, .f-link, .f-twitter {
+    margin-left: 8px;
+}
+.f-address {
+    margin-left: 6px;
+}
+.f-city {
+    margin-left: 22px;
+}
+.f-terms, .f-privacy {
+    color: lightgrey;
+}
+.f-terms:hover, .f-privacy:hover {
+    color: #b20000;
+}
+.col-md-3 > a {
+    text-decoration: none;
+}
+@media(max-width: 767px) {
+    .footer {
+        text-align: center;
+    }
+}
+@media(max-width:575px) {
+    .b-icons {
+        text-align: center;
+        margin-left: 0;
+    }
+    .section-5 > h4 {
+        text-align: center;
+    }
+    .section-5a {
+        flex-direction: column;
+    }
+    .b-desc {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .b-image {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media(max-width:549px) {
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-btn {
+        position: absolute;
+        margin-top: 71px;
+    }
+}
+input::-webkit-input-placeholder {
+    color: #b20000 !important;
+  }
+  
+  input::-moz-placeholder {
+    color: #b20000 !important;
+  }
+  
+  input:-ms-input-placeholder {
+    color: #b20000 !important;
+  }
+  
+  input::placeholder {
+    color: #b20000 !important;
+  }
+  
