@@ -1,11 +1,11 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server';
+import server from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxMTk0MTE0LCJleHAiOjE1MjI0MDM3MTR9.OeN-Tut9xAg8wYUvC-RPLbTqIcGXH5zZamP_o5wTZrc';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxODE1MzYzLCJleHAiOjE1MjIyNDczNjN9.U0WCcpMiLPJpSFQBid35GU42ExV10FljUM0e_rpbvNk';
 
 const Business = {
   name: 'Good Fashion Ltd',
@@ -64,9 +64,9 @@ describe('POST businesses/', () => {
       .post('/api/v1/businesses')
       .set('x-access-token', token)
       .send({
-        details: 'Best Ict Resources',
+        details: 'Good fashion, good people.',
         location: 'lagos',
-        category: 'ICT',
+        category: 'fashion',
       })
       .end((err, res) => {
         expect(res)
@@ -121,8 +121,8 @@ describe('PUT businesses/1', () => {
       .put('/api/v1/businesses/1')
       .set('x-access-token', token)
       .send({
-        name: 'Rotimi Texh',
-        details: 'Software company',
+        name: 'God Fashion',
+        details: 'We serve you.',
         location: 'lagos',
         category: 'ICT',
       })
@@ -137,10 +137,10 @@ describe('PUT businesses/1', () => {
       .put('/api/v1/businesses/193992932')
       .set('x-access-token', token)
       .send({
-        name: 'Rotimi Texh',
-        details: 'Software company',
+        name: 'G fashion',
+        details: 'very good',
         location: 'lagos',
-        category: 'ICT',
+        category: 'fashion',
       })
       .end((err, res) => {
         expect(res).to.have.status(404);
@@ -207,8 +207,8 @@ describe('POST reviews/1', () => {
       .send({
         businessId: 1,
         userId: 1,
-        content: 'Lorem ipsum dolor sit amet.',
-        star: 4,
+        content: 'Awesome.',
+        star: 3,
       })
       .end((err, res) => {
         expect(res)
@@ -231,7 +231,7 @@ describe('POST reviews/1', () => {
 
 
 // Delete Business
-describe('DELETE businesses/2', () => {
+describe('DELETE businesses/1', () => {
   it('should be able to delete a business', (done) => {
     chai.request(server)
       .delete('/api/v1/businesses/1')
@@ -289,9 +289,9 @@ describe('POST auth/signup/', () => {
       .post('/api/v1/auth/signup')
       .send({
         email: '',
-        password: 'timi',
-        lastName: 'mimi',
-        firstName: 'Riri'
+        password: 'password',
+        lastName: 'Admin',
+        firstName: 'Admin2'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -306,10 +306,10 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'timi@gmail.com',
+        email: 'admin@admin.com',
         password: '',
-        lastName: 'mimi',
-        firstName: 'Riri'
+        lastName: 'Admin',
+        firstName: 'Admin2'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -325,8 +325,8 @@ describe('POST auth/signup/', () => {
       .send({
         email: 'admin@admin.com',
         password: 'password',
-        lastName: 'mimi',
-        firstName: 'Riri'
+        lastName: 'Admin',
+        firstName: 'Admin2'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -343,7 +343,7 @@ describe('(Bad Requests) POST auth/login/', () => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send({
-        email: 'rotimi@gm.com',
+        email: 'admin@admin.com',
         password: '',
       })
       .end((err, res) => {
@@ -360,7 +360,7 @@ describe('(Bad Requests) POST auth/login/', () => {
       .post('/api/v1/auth/login')
       .send({
         email: '',
-        password: 'passw0RD',
+        password: 'password',
       })
       .end((err, res) => {
         expect(res)
@@ -375,8 +375,8 @@ describe('(Bad Requests) POST auth/login/', () => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send({
-        email: 'user1@gmail.com',
-        password: 'passw0RD1',
+        email: 'u@gmail.com',
+        password: 'passing',
       })
       .end((err, res) => {
         expect(res)
@@ -442,8 +442,8 @@ describe('Update users/1/', () => {
     chai.request(server)
       .put('/api/v1/users/1')
       .send({
-        firstName: 'Marsa',
-        lastName: 'Hanna',
+        firstName: 'Adm',
+        lastName: 'Admi',
       })
       .set('x-access-token', token)
       .end((err, res) => {

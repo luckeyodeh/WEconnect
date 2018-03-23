@@ -10,8 +10,8 @@ export default class BusinessController {
   /**
    * Register a new business
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The requestuest body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static register(request, response) {
@@ -53,8 +53,8 @@ export default class BusinessController {
   /**
    * Update a business
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The requestuest body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static update(request, response) {
@@ -118,7 +118,7 @@ export default class BusinessController {
   /**
    * Delete a business
    *
-   * @param {object} request The requestuest body of the requestuest.
+   * @param {object} request The requestuest body of the request.
    * @param {object} response The responseponse body.
    * @returns {object} response.
    */
@@ -156,8 +156,8 @@ export default class BusinessController {
   /**
    * List all businesses
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static list(request, response) {
@@ -180,8 +180,8 @@ export default class BusinessController {
   /**
    * Get a business
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static getById(request, response) {
