@@ -18,18 +18,18 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/api/v1/businesses', BusinessController.register);
-router.put('/api/v1/businesses/:id', BusinessController.update);
-router.delete('/api/v1/businesses/:id', BusinessController.deleteById);
+router.post('/api/v1/businesses', Middleware.auth, BusinessController.register);
+router.put('/api/v1/businesses/:id', Middleware.auth, BusinessController.update);
+router.delete('/api/v1/businesses/:id', Middleware.auth, BusinessController.deleteById);
 router.get('/api/v1/businesses/', Middleware.sorter, BusinessController.list);
 router.get('/api/v1/businesses/:id', BusinessController.getById);
 router.get('/api/v1/users', UserController.list);
 router.get('/api/v1/users/:id', UserController.getUser);
-router.put('/api/v1/users/:id', UserController.updateUser);
+router.put('/api/v1/users/:id', Middleware.auth, UserController.updateUser);
 router.post('/api/v1/auth/signup', UserController.signUp);
 router.post('/api/v1/auth/login', UserController.logIn);
 router.get('/api/v1/auth/logout', UserController.logout);
 router.get('/api/v1/businesses/:id/reviews', ReviewController.listReview);
-router.post('/api/v1/businesses/:id/reviews', ReviewController.addReview);
+router.post('/api/v1/businesses/:id/reviews', Middleware.auth, ReviewController.addReview);
 
 export default router;
