@@ -16,10 +16,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.redirect('/api/v1');
 });
-// Redirect '/' to '/api-docs'
-router.get('/api/v1', (req, res) => {
-  res.redirect('/api-docs');
-});
+
+
 // POST register business
 router.post('/api/v1/businesses', BusinessController.register);
 // PUT update business

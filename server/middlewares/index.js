@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import Model from '../models';
 
 const { Business } = Model;
@@ -51,12 +52,4 @@ export default class Middleware {
 
     next();
   }
-
-  /**
-   * Checks if a user is logged in
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
-   * @param {object} next Passes control to next middleware
-   * @returns {object} next
-   */
 }
