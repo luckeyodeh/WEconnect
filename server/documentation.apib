@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://
+HOST: https://https://desolate-castle-19659.herokuapp.com/
 
 # WeConnect
 
@@ -9,15 +9,15 @@ the users the ability to write reviews about the businesses they have interacted
 
 # Group Businesses
 
-## Businesses Collection [/businesses]
+## Businesses Collection [api/v1/businesses]
 
-### Get All Businesses [GET /businesses]
+### Get All Businesses [GET api/v1/businesses]
 + Response 200 (application/json)
     + Attributes
         - businesses (array[Business])
             
 
-### Get A Single Business [GET /businesses/{id}]
+### Get A Single Business [GET api/v1/businesses/{id}]
 + Parameter
     + id: `1` - The ID of the Business
 
@@ -25,12 +25,12 @@ the users the ability to write reviews about the businesses they have interacted
     + Attributes
         - Include Business
 
-### Register A New Business [POST /businesses]
+### Register A New Business [POST api/v1/businesses]
 + Response 201 (application/json)
     + Attributes
         - businesses (array[Business])
 
-### Update a Businesses [PUT /businesses/{id}]
+### Update a Businesses [PUT api/v1/businesses/{id}]
 + Parameter
     + id: `1` - The ID of the Business
 
@@ -38,7 +38,7 @@ the users the ability to write reviews about the businesses they have interacted
     + Attributes
         - businesses (array[Business])
 
-### Delete a Businesses [DELETE /businesses/{id}]
+### Delete a Businesses [DELETE api/v1/businesses/{id}]
 + Parameter
     + id: `1` - The ID of the Business
 
@@ -49,9 +49,9 @@ the users the ability to write reviews about the businesses they have interacted
 
 # Group Reviews
 
-## Reviews Collection [/businesses/{id}/reviews]
+## Reviews Collection [api/v1/businesses/{id}/reviews]
 
-### Get A Single Business Reviews [GET /businesses/{id}/reviews]
+### Get A Single Business Reviews [GET api/v1/businesses/{id}/reviews]
 + Parameter
     + id: `1` - The ID of the Business
 
@@ -59,7 +59,7 @@ the users the ability to write reviews about the businesses they have interacted
     + Attributes
         - reviews (array[Review])
 
-### Post A Business Review [POST /businesses/{id}/reviews]
+### Post A Business Review [POST api/v1/businesses/{id}/reviews]
 + Parameter
     + id: `1` - The ID of the Business
 
@@ -69,28 +69,28 @@ the users the ability to write reviews about the businesses they have interacted
 
 # Group Filter
 
-## Filter Collection [/businesses]
+## Filter Collection [api/v1/businesses]
 
-### Filter Businesses By Location [POST /businesses/location/:location]
+### Filter Businesses By Location [POST api/v1/businesses/location/:location]
 + Response 200 (application/json)
     + Attributes
         - businesses (array[Business])
 
-### Filter Businesses By Category [POST /businesses/category/:category]
+### Filter Businesses By Category [POST api/v1/businesses/category/:category]
 + Response 200 (application/json)
     + Attributes
         - businesses (array[Business])
 
 # Group Authentication
 
-## Authentication Collection [/businesses]
+## Authentication Collection [api/v1/businesses]
 
-### Create A New User [POST /auth/signup]
+### Create A New User [POST api/v1/auth/signup]
 + Response 200 (application/json)
     + Attributes
         - user (array[User])
 
-### Login A New User [POST /auth/login]
+### Login A New User [POST api/v1/auth/login]
 + Response 200 (application/json)
     + Attributes
         - user (array[User])
