@@ -12,11 +12,6 @@ import Middleware from '../../middlewares';
 
 const router = express.Router();
 
-// REDIRECT '/' to '/api/v1'
-router.get('/', (req, res) => {
-  res.redirect('/api/v1');
-});
-
 
 router.post('/api/v1/businesses', Middleware.auth, BusinessController.register);
 router.put('/api/v1/businesses/:id', Middleware.auth, BusinessController.update);

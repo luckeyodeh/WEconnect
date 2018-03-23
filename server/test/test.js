@@ -22,26 +22,7 @@ const User = {
 };
 
 // Redirect to API v1
-describe('GET /', () => {
-  it('should get home', () => {
-    chai.request(server)
-      .get('/')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-      });
-  });
-});
 
-// GET /api/v1
-describe('GET /api/v1', () => {
-  it('should get home', () => {
-    chai.request(server)
-      .get('/api/v1')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-      });
-  });
-});
 
 //  Add a business
 describe('POST businesses/', () => {
@@ -121,7 +102,7 @@ describe('PUT businesses/1', () => {
       .put('/api/v1/businesses/1')
       .set('x-access-token', token)
       .send({
-        name: 'God Fashion',
+        name: 'Good Fashion Ltd',
         details: 'We serve you.',
         location: 'lagos',
         category: 'ICT',
