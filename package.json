@@ -43,8 +43,7 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "npm run build && ./node_modules/.bin/nodemon ./server/app.js",
-    "start:dev": "nodemon ./server/app.js",
+    "start": "NODE_ENV=development nodemon --watch  server --exec babel-node app.js",
     "build": "babel server -d ./dist --ignore server/dist",
     "test": "nyc --reporter=html --reporter=text mocha ./server/test/ --exit --compilers js:babel-register",
     "test-watch": "nodemon --exec \"npm test\"",
