@@ -18,19 +18,18 @@ router.get('/', (req, res) => {
 });
 
 
-// POST register business
-router.post('/api/v1/businesses', BusinessController.register);
-// PUT update business
-router.put('/api/v1/businesses/:id', BusinessController.update);
-// DELETE delete business
-router.delete('/api/v1/businesses/:id', BusinessController.deleteById);
-// GET get all businesses
+router.post('/api/v1/businesses', Middleware.auth, BusinessController.register);
+router.put('/api/v1/businesses/:id', Middleware.auth, BusinessController.update);
+router.delete('/api/v1/businesses/:id', Middleware.auth, BusinessController.deleteById);
 router.get('/api/v1/businesses/', Middleware.sorter, BusinessController.list);
-// Get a Business
 router.get('/api/v1/businesses/:id', BusinessController.getById);
-// GET get all reviews
+router.get('/api/v1/users', UserController.list);
+router.get('/api/v1/users/:id', UserController.getUser);
+router.put('/api/v1/users/:id', Middleware.auth, UserController.updateUser);
+router.post('/api/v1/auth/signup', UserController.signUp);
+router.post('/api/v1/auth/login', UserController.logIn);
+router.get('/api/v1/auth/logout', UserController.logout);
 router.get('/api/v1/businesses/:id/reviews', ReviewController.listReview);
-// POST add reviews
-router.post('/api/v1/businesses/:id/reviews', ReviewController.addReview);
+router.post('/api/v1/businesses/:id/reviews', Middleware.auth, ReviewController.addReview);
 
 export default router;
