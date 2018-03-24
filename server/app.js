@@ -32,6 +32,21 @@ app.use((req, res, next) => {
   next(err);
 });
 
+// error handler
+app.use((error, request, response, next) => {
+  // set locals, only providing error in development
+  response.locals.message = error.message;
+  response.locals.error = request.app.get('env') === 'development' ? error : {};
+
+  // render the <error></error>
+  response.status(error.status || 500);
+  response.json({
+    error: response.locals.error || error.message,
+    message: response.locals.message || error.status,
+  });
+  next();
+});
+
 
 /**
  * Listen on provided port

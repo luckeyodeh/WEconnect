@@ -24,7 +24,7 @@ export default class ReviewController {
       }
       Review.findAll().then((reviews) => {
         if (reviews.length === 0) {
-          return response.status(404).json({
+          return response.status(200).json({
             error: true,
             message: 'No review found'
           });

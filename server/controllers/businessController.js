@@ -97,18 +97,18 @@ export default class BusinessController {
           where: { id: request.params.id, },
         }).then((updateBusiness) => {
           if (!updateBusiness) {
-            return response.status(500).json({
+            return response.json({
               error: true,
               message: 'Server error'
             });
           }
-          return response.status(200).json({
+          return response.json({
             error: false,
             message: 'Business updated',
           });
         });
       }).catch(() => {
-        response.status(500).json({
+        response.json({
           error: true,
           message: 'Server Error'
         });
@@ -163,7 +163,7 @@ export default class BusinessController {
   static list(request, response) {
     Business.findAll({}).then((businesses) => {
       if (businesses.length === 0) {
-        return response.status(404).json({
+        return response.status(200).json({
           error: true,
           message: 'No business found'
         });

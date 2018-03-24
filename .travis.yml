@@ -1,16 +1,22 @@
 language: node_js
 node_js:
-- "node"
-before_install:
-  - npm i -g npm
-install: true
-before_script:
+- "stable"
+install:
   - npm install
 script:
-  - nodemon --exec babel-node --presets es2015 ./server/bin/www &
-  - nyc --reporter=html --reporter=text mocha ./server/test/ --exit --compilers js:babel-register
+  - npm test
+  - npm run coverage
 env:
   - NODE_ENV=test
 cache:
   directories:
     - "node_modules"
+services:
+  - postgresql
+before_script:
+  - createuser aukhulpz -s -U postgres
+  - createdb database_test --username=aukhulpz
+  - sequelize db:migrate
+  - sequelize db:seed:all
+after_success :
+    - npm run coverage

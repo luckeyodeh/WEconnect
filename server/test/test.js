@@ -21,8 +21,6 @@ const User = {
   lastName: 'Admin2'
 };
 
-// Redirect to API v1
-
 
 //  Add a business
 describe('POST businesses/', () => {
@@ -63,9 +61,9 @@ describe('POST businesses/', () => {
       .set('x-access-token', token)
       .send({
         name: undefined,
-        details: 'Best Ict Resources',
+        details: 'Good fashion, good people.',
         location: 'lagos',
-        category: 'ICT',
+        category: 'fashion',
       })
       .end((err, res) => {
         expect(res)
@@ -81,9 +79,9 @@ describe('POST businesses/', () => {
       .set('x-access-token', token)
       .send({
         name: '',
-        details: 'Best Ict Resources',
+        details: 'Good fashion, good people.',
         location: 'lagos',
-        category: 'ICT',
+        category: 'fashion',
       })
       .end((err, res) => {
         expect(res)
@@ -102,10 +100,10 @@ describe('PUT businesses/1', () => {
       .put('/api/v1/businesses/1')
       .set('x-access-token', token)
       .send({
-        name: 'Good Fashion Ltd',
+        name: 'God Fashion',
         details: 'We serve you.',
         location: 'lagos',
-        category: 'ICT',
+        category: 'fashion',
       })
       .end((err, res) => {
         expect(res).to.have.status(200);
@@ -259,7 +257,7 @@ describe('POST auth/signup/', () => {
       .end((err, res) => {
         expect(res).to.have.status(201);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.equal(false);
+        expect(res.body.error).to.eql(false);
         done();
       });
   });
@@ -271,13 +269,13 @@ describe('POST auth/signup/', () => {
       .send({
         email: '',
         password: 'password',
-        lastName: 'Admin',
-        firstName: 'Admin2'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.equal(true);
+        expect(res.body.error).to.eql(true);
         done();
       });
   });
@@ -289,13 +287,13 @@ describe('POST auth/signup/', () => {
       .send({
         email: 'admin@admin.com',
         password: '',
-        lastName: 'Admin',
-        firstName: 'Admin2'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.equal(true);
+        expect(res.body.error).to.eql(true);
         done();
       });
   });
@@ -306,13 +304,13 @@ describe('POST auth/signup/', () => {
       .send({
         email: 'admin@admin.com',
         password: 'password',
-        lastName: 'Admin',
-        firstName: 'Admin2'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.equal(true);
+        expect(res.body.error).to.eql(true);
         done();
       });
   });
