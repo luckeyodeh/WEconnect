@@ -8,17 +8,17 @@ chai.use(chaiHttp);
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxODE1MzYzLCJleHAiOjE1MjIyNDczNjN9.U0WCcpMiLPJpSFQBid35GU42ExV10FljUM0e_rpbvNk';
 
 const Business = {
-  name: 'Good Fashion Ltd',
-  details: 'Good fashion, good people.',
+  name: `Good Fash Ltd ${Math.random() * 100}`,
+  details: 'Good fashion.',
   location: 'lagos',
   category: 'fashion',
 };
 
 const User = {
-  email: 'admin@admin.com',
+  email: 'test@yahoo.com',
   password: 'password',
-  firstName: 'Admin',
-  lastName: 'Admin2'
+  firstName: 'Adm',
+  lastName: 'Adminn'
 };
 
 
@@ -43,7 +43,7 @@ describe('POST businesses/', () => {
       .post('/api/v1/businesses')
       .set('x-access-token', token)
       .send({
-        details: 'Good fashion, good people.',
+        details: 'Good fashion.',
         location: 'lagos',
         category: 'fashion',
       })
@@ -61,7 +61,7 @@ describe('POST businesses/', () => {
       .set('x-access-token', token)
       .send({
         name: undefined,
-        details: 'Good fashion, good people.',
+        details: 'Good fashion.',
         location: 'lagos',
         category: 'fashion',
       })
@@ -79,7 +79,7 @@ describe('POST businesses/', () => {
       .set('x-access-token', token)
       .send({
         name: '',
-        details: 'Good fashion, good people.',
+        details: 'Good fashion.',
         location: 'lagos',
         category: 'fashion',
       })
@@ -94,14 +94,14 @@ describe('POST businesses/', () => {
 });
 
 //  Update a business
-describe('PUT businesses/1', () => {
+describe('PUT businesses/8', () => {
   it('should be able to update a business', (done) => {
     chai.request(server)
-      .put('/api/v1/businesses/1')
+      .put('/api/v1/businesses/8')
       .set('x-access-token', token)
       .send({
-        name: 'God Fashion',
-        details: 'We serve you.',
+        name: 'Good F Ltd',
+        details: 'Good fashion always.',
         location: 'lagos',
         category: 'fashion',
       })
@@ -141,10 +141,10 @@ describe('GET businesses/', () => {
       });
   });
   // Get Individual Business
-  describe('GET busineesses/1', () => {
+  describe('GET busineesses/2', () => {
     it('should be able to get a business', (done) => {
       chai.request(server)
-        .get('/api/v1/businesses/1')
+        .get('/api/v1/businesses/2')
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.a('object');
@@ -155,10 +155,10 @@ describe('GET businesses/', () => {
 });
 
 // Get Business Reviews
-describe('Get businesses/1/reviews', () => {
+describe('Get businesses/2/reviews', () => {
   it('should be able to get reviews of a business', (done) => {
     chai.request(server)
-      .get('/api/v1/businesses/1/reviews')
+      .get('/api/v1/businesses/2/reviews')
       .end((err, res) => {
         expect(res)
           .to.have.status(200);
@@ -181,7 +181,7 @@ describe('Get businesses/1/reviews', () => {
 describe('POST reviews/1', () => {
   it('should be able to add reviews to a business', (done) => {
     chai.request(server)
-      .post('/api/v1/businesses/1/reviews')
+      .post('/api/v1/businesses/2/reviews')
       .set('x-access-token', token)
       .send({
         businessId: 1,
@@ -210,10 +210,10 @@ describe('POST reviews/1', () => {
 
 
 // Delete Business
-describe('DELETE businesses/1', () => {
+describe('DELETE businesses/8', () => {
   it('should be able to delete a business', (done) => {
     chai.request(server)
-      .delete('/api/v1/businesses/1')
+      .delete('/api/v1/businesses/8')
       .set('x-access-token', token)
       .end((err, res) => {
         expect(res)
@@ -257,7 +257,7 @@ describe('POST auth/signup/', () => {
       .end((err, res) => {
         expect(res).to.have.status(201);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.eql(false);
+        expect(res.body.error).to.equal(false);
         done();
       });
   });
@@ -269,13 +269,13 @@ describe('POST auth/signup/', () => {
       .send({
         email: '',
         password: 'password',
-        lastName: 'Admin2',
-        firstName: 'Admin'
+        lastName: 'Adminn',
+        firstName: 'Adm'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.eql(true);
+        expect(res.body.error).to.equal(true);
         done();
       });
   });
@@ -285,15 +285,15 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'admin@admin.com',
+        email: 'test@yahoo.com',
         password: '',
-        lastName: 'Admin2',
-        firstName: 'Admin'
+        lastName: 'Adminn',
+        firstName: 'Adm'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.eql(true);
+        expect(res.body.error).to.equal(true);
         done();
       });
   });
@@ -302,15 +302,15 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'admin@admin.com',
+        email: 'test@yahoo.com',
         password: 'password',
-        lastName: 'Admin2',
-        firstName: 'Admin'
+        lastName: 'Adminn',
+        firstName: 'Adm'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.a('object');
-        expect(res.body.error).to.eql(true);
+        expect(res.body.error).to.equal(true);
         done();
       });
   });
@@ -322,7 +322,7 @@ describe('(Bad Requests) POST auth/login/', () => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send({
-        email: 'admin@admin.com',
+        email: 'test@yahoo.com',
         password: '',
       })
       .end((err, res) => {
