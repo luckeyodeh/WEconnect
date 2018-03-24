@@ -40,8 +40,8 @@ export default class UserController {
   /**
    * Signup
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static signUp(request, response) {
@@ -91,8 +91,8 @@ export default class UserController {
   /**
    * Login
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static logIn(request, response) {
@@ -130,8 +130,8 @@ export default class UserController {
 
   /**
    * Log out
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static logout(request, response) {
@@ -145,8 +145,8 @@ export default class UserController {
 
   /**
    * Get User
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static getUser(request, response) {
@@ -173,8 +173,8 @@ export default class UserController {
   }
   /**
    * Update user details
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static updateUser(request, response) {

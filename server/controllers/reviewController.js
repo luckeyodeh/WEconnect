@@ -10,8 +10,8 @@ export default class ReviewController {
   /**
    * Get all Reviews
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static listReview(request, response) {
@@ -43,8 +43,8 @@ export default class ReviewController {
   /**
    * Add a new Review
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static addReview(request, response) {

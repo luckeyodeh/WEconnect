@@ -53,7 +53,7 @@ export default class BusinessController {
   /**
    * Update a business
    *
-   * @param {object} request The requestuest body of the request.
+   * @param {object} request The request body of the request.
    * @param {object} response The response body.
    * @returns {object} response.
    */
@@ -118,8 +118,8 @@ export default class BusinessController {
   /**
    * Delete a business
    *
-   * @param {object} request The requestuest body of the request.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static deleteById(request, response) {
