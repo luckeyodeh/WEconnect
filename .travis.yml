@@ -5,7 +5,7 @@ node_js:
 install:
   - npm install
 env:
-  - NODE_ENV=development
+   - DB=postgres://postgres@localhost/development
 cache:
   directories:
     - "node_modules"

@@ -94,10 +94,10 @@ describe('POST businesses/', () => {
 });
 
 //  Update a business
-describe('PUT businesses/1', () => {
+describe('PUT businesses/2', () => {
   it('should be able to update a business', (done) => {
     chai.request(server)
-      .put('/api/v1/businesses/1')
+      .put('/api/v1/businesses/2')
       .set('x-access-token', token)
       .send({
         name: 'Good F Ltd',
@@ -210,10 +210,10 @@ describe('POST reviews/1', () => {
 
 
 // Delete Business
-describe('DELETE businesses/1', () => {
+describe('DELETE businesses/2', () => {
   it('should be able to delete a business', (done) => {
     chai.request(server)
-      .delete('/api/v1/businesses/1')
+      .delete('/api/v1/businesses/2')
       .set('x-access-token', token)
       .end((err, res) => {
         expect(res)
