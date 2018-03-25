@@ -15,10 +15,10 @@ const Business = {
 };
 
 const User = {
-  email: 'test@gmail.com',
+  email: 'admin@admin.com',
   password: 'password',
-  firstName: 'Adm',
-  lastName: 'Adminn'
+  firstName: 'Admin',
+  lastName: 'Admin2'
 };
 
 
@@ -269,8 +269,8 @@ describe('POST auth/signup/', () => {
       .send({
         email: '',
         password: 'password',
-        lastName: 'Adminn',
-        firstName: 'Adm'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -285,10 +285,10 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'test@gmail.com',
+        email: 'admin@admin.com',
         password: '',
-        lastName: 'Adminn',
-        firstName: 'Adm'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -302,10 +302,10 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'test@gmail.com',
+        email: 'admin@admin.com',
         password: 'password',
-        lastName: 'Adminn',
-        firstName: 'Adm'
+        lastName: 'Admin2',
+        firstName: 'Admin'
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
@@ -322,7 +322,7 @@ describe('(Bad Requests) POST auth/login/', () => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send({
-        email: 'test@gmail.com',
+        email: 'admin@admin.com',
         password: '',
       })
       .end((err, res) => {
@@ -421,8 +421,8 @@ describe('Update users/1/', () => {
     chai.request(server)
       .put('/api/v1/users/1')
       .send({
-        firstName: 'Adm',
-        lastName: 'Admi',
+        firstName: 'Admin',
+        lastName: 'Admin2',
       })
       .set('x-access-token', token)
       .end((err, res) => {
