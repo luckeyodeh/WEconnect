@@ -3,13 +3,7 @@ node_js:
 - "9"
 install:
   - npm install
-before_script:
-   - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE test;' -U postgres; fi"
-script:
-  - npm test
-  - npm run coverage
 env:
-  - NODE_ENV=test
   - DB=postgres://postgres@127.0.0.1/test
 cache:
   directories:
@@ -18,4 +12,11 @@ services:
   - postgresql
 addons:
   postgresql: "9.6"
+before_script:
+   - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE test;' -U postgres; fi"
+script:
+  - npm test
+  - npm run coverage
+after_success :
+    - npm run coverage
 
