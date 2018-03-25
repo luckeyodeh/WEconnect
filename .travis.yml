@@ -16,8 +16,8 @@ cache:
 services:
   - postgresql
 before_script:
-  - createuser aukhulpz -s -U postgres
-  - createdb database_test --username=aukhulpz
+  - createuser postgres -s -U postgres
+  - createdb businesses --username=postgres
   - sequelize db:migrate
   - sequelize db:seed:all
 after_success :
