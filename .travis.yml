@@ -3,18 +3,19 @@ node_js:
 - "9"
 install:
   - npm install
+before_script:
+   - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE test;' -U postgres; fi"
 script:
   - npm test
   - npm run coverage
 env:
   - NODE_ENV=test
+  - DB=postgres://postgres@127.0.0.1/test
 cache:
   directories:
     - "node_modules"
 services:
   - postgresql
-before_script:
-  - createuser postgres -s -U postgres
-  - createdb businesses --username=postgres
-  - sequelize db:migrate
-  - sequelize db:seed:all
+addons:
+  postgresql: "9.6"
+
