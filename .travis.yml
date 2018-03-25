@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- "stable"
+- "9"
 install:
   - npm install
 script:
@@ -18,4 +18,3 @@ before_script:
   - createdb businesses --username=postgres
   - sequelize db:migrate
   - sequelize db:seed:all
-  
