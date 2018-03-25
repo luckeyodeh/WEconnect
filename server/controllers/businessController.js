@@ -10,7 +10,7 @@ export default class BusinessController {
   /**
    * Register a new business
    *
-   * @param {object} request The requestuest body of the request.
+   * @param {object} request The request body of the request.
    * @param {object} response The response body.
    * @returns {object} response.
    */

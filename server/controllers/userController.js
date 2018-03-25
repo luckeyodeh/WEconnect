@@ -13,8 +13,8 @@ export default class UserController {
   /**
    * List all users
    *
-   * @param {object} request The requestuest body of the requestuest.
-   * @param {object} response The responseponse body.
+   * @param {object} request The request body of the request.
+   * @param {object} response The response body.
    * @returns {object} response.
    */
   static list(request, response) {
