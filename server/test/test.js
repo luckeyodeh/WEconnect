@@ -15,7 +15,7 @@ const Business = {
 };
 
 const User = {
-  email: 'test@yahoo.com',
+  email: 'test@gmail.com',
   password: 'password',
   firstName: 'Adm',
   lastName: 'Adminn'
@@ -94,10 +94,10 @@ describe('POST businesses/', () => {
 });
 
 //  Update a business
-describe('PUT businesses/2', () => {
+describe('PUT businesses/1', () => {
   it('should be able to update a business', (done) => {
     chai.request(server)
-      .put('/api/v1/businesses/2')
+      .put('/api/v1/businesses/1')
       .set('x-access-token', token)
       .send({
         name: 'Good F Ltd',
@@ -210,10 +210,10 @@ describe('POST reviews/1', () => {
 
 
 // Delete Business
-describe('DELETE businesses/2', () => {
+describe('DELETE businesses/1', () => {
   it('should be able to delete a business', (done) => {
     chai.request(server)
-      .delete('/api/v1/businesses/2')
+      .delete('/api/v1/businesses/1')
       .set('x-access-token', token)
       .end((err, res) => {
         expect(res)
@@ -285,7 +285,7 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'test@yahoo.com',
+        email: 'test@gmail.com',
         password: '',
         lastName: 'Adminn',
         firstName: 'Adm'
@@ -302,7 +302,7 @@ describe('POST auth/signup/', () => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send({
-        email: 'test@yahoo.com',
+        email: 'test@gmail.com',
         password: 'password',
         lastName: 'Adminn',
         firstName: 'Adm'
@@ -322,7 +322,7 @@ describe('(Bad Requests) POST auth/login/', () => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send({
-        email: 'test@yahoo.com',
+        email: 'test@gmail.com',
         password: '',
       })
       .end((err, res) => {
