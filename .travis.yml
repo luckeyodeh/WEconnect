@@ -1,7 +1,9 @@
 language: node_js
 dist: trusty
 node_js:
-- "9"
+- "node"
+- "iojs"
+- "lts"
 install:
   - npm install
 env:
