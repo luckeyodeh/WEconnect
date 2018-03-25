@@ -8,8 +8,6 @@ script:
   - npm run coverage
 env:
   - NODE_ENV=test
-  global:
-    - CC_TEST_REPORTER_ID=d65fad6a3438a6931af676591bc552704194626144e42bfaff3b8664b6cab9a8
 cache:
   directories:
     - "node_modules"
