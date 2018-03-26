@@ -2,7 +2,7 @@
     "name": "weconnect",
     "version": "1.0.0",
     "description": "Weconnect provides a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to write reviews about the businesses they have interacted with.",
-    "main": "app.js",
+    "main": "./server/app.js",
     "dependencies": {
       "body-parser": "^1.18.2",
       "cookie-parser": "^1.4.3",

@@ -2,3 +2,5 @@ node_modules
 .coveralls.yml
 .env
 dist
+coverage
+.nyc_output
