@@ -1,56 +1,30 @@
 import jwt from 'jsonwebtoken';
 import isEmail from 'validator/lib/isEmail';
 import bcrypt from 'bcrypt';
-import Model from '../models';
+import data from '../models';
 
-const { User } = Model;
+const { User } = data;
 
 /**
  * Business Controller.
  * @class BusinessController
  * */
-export default class UserController {
-  /**
-   * List all users
-   *
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
-   * @returns {object} response.
-   */
-  static list(request, response) {
-    User.findAll({})
-      .then((users) => {
-        if (users.length === 0) {
-          return response.status(400).send({
-            error: true,
-            message: 'No user found'
-          });
-        }
-        response.status(200).send({
-          error: false,
-          users,
-        });
-      }).catch(() => {
-        response.status(500).json({
-          error: true,
-          message: 'Server Error'
-        });
-      });
-  }
+class UserController {
+
   /**
    * Signup
    *
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
+   * @param {object} req The request.
+   * @param {object} res The response.
    * @returns {object} response.
    */
-  static signUp(request, response) {
+  static signup(req, res) {
     const {
       email, password, firstName, lastName
-    } = request.body;
+    } = req.body;
 
     if (!isEmail(email) || !password || !firstName || !lastName) {
-      return response.status(400).json({
+      return res.status(400).json({
         message: 'Enter Valid Input',
         error: true,
       });
@@ -59,7 +33,7 @@ export default class UserController {
     User.findOne({ where: { email: email.trim().toLowerCase() } })
       .then((userExists) => {
         if (userExists) {
-          return response.status(400).json({
+          return res.status(400).json({
             error: true,
             message: 'Account exists for that email'
           });
@@ -74,7 +48,7 @@ export default class UserController {
       password: hash,
     }).then((user) => {
       const token = jwt.sign({ id: user.id }, process.env.SALT, { expiresIn: 86400 * 5 });
-      return response.status(201).json({
+      return res.status(201).json({
         error: false,
         message: 'User created and logged in',
         token,
@@ -91,30 +65,30 @@ export default class UserController {
   /**
    * Login
    *
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
+   * @param {object} req The request.
+   * @param {object} res The response.
    * @returns {object} response.
    */
-  static logIn(request, response) {
-    const { email, password } = request.body;
+  static login(req, res) {
+    const { email, password } = req.body;
     User.findOne({ where: { email: email.trim().toLowerCase() } })
       .then((user) => {
         if (!user) {
-          return response.status(400).json({
+          return res.status(400).json({
             error: true,
             message: 'Email or Password Incorrect'
           });
         }
         const correctPassword = bcrypt.compareSync(password, user.password);
         if (!correctPassword) {
-          return response.status(400).json({
+          return res.status(400).json({
             error: true,
             message: 'Email or Password Incorrect'
           });
         }
         const token = jwt.sign({ id: user.id }, process.env.SALT, { expiresIn: 86400 * 5 });
 
-        return response.status(200).json({
+        return res.status(200).json({
           error: false,
           message: 'Logged in Successfully',
           token,
@@ -128,85 +102,43 @@ export default class UserController {
       });
   }
 
-  /**
-   * Log out
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
-   * @returns {object} response.
-   */
-  static logout(request, response) {
-    response.setHeader('x-access-token', null);
-    return response.status(200).send({
-      error: false,
-      message: 'User has been logged out',
-      token: null
-    });
-  }
 
   /**
-   * Get User
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
-   * @returns {object} response.
-   */
-  static getUser(request, response) {
-    User.findOne({
-      where: { id: request.params.id },
-    }).then((user) => {
-      if (!user) {
-        return response.status(404).json({
-          error: true,
-          message: 'User not found',
-        });
-      }
-      return response.status(200).json({
-        error: false,
-        message: 'User found',
-        user: {
-          id: user.id,
-          email: user.email,
-          firstName: user.firstName,
-          lastName: user.lastName,
-        }
-      });
-    });
-  }
-  /**
    * Update user details
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
+   * @param {object} req The request.
+   * @param {object} res The response.
    * @returns {object} response.
    */
-  static updateUser(request, response) {
-    User.findById(request.params.id)
+  static editUser(req, res) {
+    User.findById(req.params.id)
       .then((user) => {
         if (!user) {
-          return response.status(404).json({
+          return res.status(404).json({
             error: true,
             message: 'User not found'
           });
         }
 
-        if (request.userId !== user.id) {
-          return response.status(400).json({
+        if (req.userId !== user.id) {
+          return res.status(400).json({
             error: true,
             message: 'You do not have the permission to update this user'
           });
         }
 
         User.update({
-          firstName: request.body.firstName || user.firstName,
-          lastName: request.body.lastName || user.lastName,
+          firstName: req.body.firstName || user.firstName,
+          lastName: req.body.lastName || user.lastName,
         }, {
-          where: { id: request.params.id, },
+          where: { id: req.params.id, },
         }).then((updatedUser) => {
           if (!updatedUser) {
-            return response.status(500).json({
+            return res.status(500).json({
               error: true,
               message: 'Server error'
             });
           }
-          return response.status(200).json({
+          return res.status(200).json({
             error: false,
             message: 'User updated',
             data: updatedUser
@@ -215,3 +147,5 @@ export default class UserController {
       });
   }
 }
+
+export default UserController;

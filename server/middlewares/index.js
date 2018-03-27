@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import Model from '../models';
+import data from '../models';
 
-const { Business } = Model;
+const { Business } = data;
 
 /**
  * Middleware
@@ -9,67 +9,65 @@ const { Business } = Model;
  * */
 export default class Middleware {
   /**
-   * Register a new business
+   * Register business
    *
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
-   * @param {object} next The response body.
+   * @param {object} req The request.
+   * @param {object} res The response.
+   * @param {object} next to next middleware.
    * @returns {object} response.
    */
-  static sorter(request, response, next) {
-    const { location, category } = request.query;
+  static isType(req, res, next) {
+    const { location, category } = req.query;
 
     if (location) {
-      Business.findAll({ where: { location } }).then((businesses) => {
-        if (businesses.length === 0) {
-          return response.status(404).json({
+      Business.findAll({ where: { location } }).then((regBusinesses) => {
+        if (regBusinesses.length === 0) {
+          return res.status(404).json({
             error: true,
-            message: `No business found in ${location}`
+            message: `No business in ${location} yet`
           });
         }
-        return response.status(200).json({
+        return res.status(200).json({
           error: false,
-          businesses,
+          regBusinesses,
         });
       });
     }
 
     if (category) {
-      Business.findAll({ where: { category } }).then((businesses) => {
-        if (businesses.length === 0) {
-          return response.status(404).json({
+      Business.findAll({ where: { category } }).then((regBusinesses) => {
+        if (regBusinesses.length === 0) {
+          return res.status(404).json({
             error: true,
-            message: `No business found in ${category}`
+            message: `No business in ${category} yet`
           });
         }
-        return response.status(200).json({
+        return res.status(200).json({
           error: false,
-          businesses,
+          regBusinesses,
         });
       });
     }
-
-
     next();
   }
 
   /**
-   * Checks if a user is logged in
-   * @param {object} request The request body of the request.
-   * @param {object} response The response body.
-   * @param {object} next Passes control to next middleware
+   * Authentication
+   * @param {object} req The request.
+   * @param {object} res The response.
+   * @param {object} next to next middleware
    * @returns {object} next
    */
-  static auth(request, response, next) {
-    const token = request.body.token || request.query.token || request.headers['x-access-token'];
+  static auth(req, res, next) {
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
     jwt.verify(token, process.env.SALT, (err, decoded) => {
       if (err) {
-        return response.status(401).json({
+        return res.status(401).json({
           error: true,
-          message: 'User not logged in'
+          message: 'User not authenticated'
         });
       }
-      request.userId = decoded.id;
+      req.userId = decoded.id;
       return next();
     });
   }

@@ -4,7 +4,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import index from './routes/v1/index';
+import index from './routes/index';
 
 
 const app = express();
