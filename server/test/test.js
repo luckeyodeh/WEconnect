@@ -233,20 +233,6 @@ describe('DELETE businesses/2', () => {
   });
 });
 
-
-//  Get all Users
-describe('GET users/', () => {
-  it('should get all users', (done) => {
-    chai.request(server)
-      .get('/api/v1/users')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.be.a('object');
-        done();
-      });
-  });
-});
-
 //  POST - Sign up
 describe('POST auth/signup/', () => {
   //  POST - Should create a new User
