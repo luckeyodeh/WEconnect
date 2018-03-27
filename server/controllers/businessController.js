@@ -36,20 +36,18 @@ class BusinessController {
           message: 'Business name chosen already',
         });
       }
-    });
 
     // Create a business
-    create(req, res) {
-      return Business
+      Business
         .create({
           name: req.body.name,
           details: req.body.details,
           location: req.body.location,
           category: req.body.category,
         })
-        .then(business => res.status(201).send(business))
+        .then(() => res.status(201).send(regBusiness))
         .catch(error => res.status(400).send(error));
-    },
+    });
   }
 
   /**
@@ -60,9 +58,6 @@ class BusinessController {
    * @returns {object} response.
    */
   static updateBusiness(req, res) {
-    const {
-      name, details, location, category
-    } = req.body;
     Business.findById(req.params.businessid)
       .then((regBusiness) => {
         if (!regBusiness) {
@@ -81,17 +76,16 @@ class BusinessController {
 
 
         // Update the business
-                Business.update({
-                  name: req.body.name || buisness.name,
-                  details: req.body.details || buisness.details,
-                  location: req.body.location || buisness.location,
-                  category: req.body.category || buisness.category,
-                })
-                .then(() => res.status(200).send(business))  // Send back the updated business.
-                .catch((error) => res.status(400).send(error));
-            })
-            .catch((error) => res.status(400).send(error));
-        },
+        Business.update({
+          name: req.body.name || regBusiness.name,
+          details: req.body.details || regBusiness.details,
+          location: req.body.location || regBusiness.location,
+          category: req.body.category || regBusiness.category,
+        })
+          .then(() => res.status(200).send(regBusiness))  // Send back the updated business.
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
   }
 
   /**

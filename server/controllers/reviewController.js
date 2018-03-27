@@ -24,27 +24,17 @@ class ReviewController {
           message: 'Business not found'
         });
       }
-      Review.create({
-        content, star, userId, businessId
-      }).then((review) => {
-        const { businessId, content, star } = review;
-        res.status(201).json({
-          message: 'Business reviewed successfully',
-          Review: {
-            userId: id,
-            businessId,
-            content,
-            star
-          }
-        });
-      });
-  })
-  .catch(() =>
-    res.status(500).send('Internal server error'));
+      Review
+        .create({
+          content: req.body.content,
+          star: req.body.star,
+          businessId: req.params.businessId,
+        })
+        .then(review => res.status(201).send(review))
+        .catch(error => res.status(400).send(error));
     });
+
   }
-
-
   /**
    * Get all Reviews
    *
@@ -56,33 +46,33 @@ class ReviewController {
     Business
       .findById(request.params.businessid)
       .then((business) => {
-      if (!business) {
-        return res.status(404).json({
-          error: true,
-          message: 'Business not found'
-        });
-      }
-      return Review
-      .findAll({
-        where: {
-          businessId: req.params.businessId
-        }
-      })
-      .then((reviews) => {
-        if (reviews.length === 0) {
+        if (!business) {
           return res.status(404).json({
-            message: 'No review for this business'
+            error: true,
+            message: 'Business not found'
           });
         }
-        return res.status(200).json({
-          error: false,
-          reviews,
-        });
-      }).catch(() => res.status(500).json({
-        error: true,
-        message: 'Server Error'
-      }));
-    });
+        return Review
+          .findAll({
+            where: {
+              businessId: req.params.businessId
+            }
+          })
+          .then((reviews) => {
+            if (reviews.length === 0) {
+              return res.status(404).json({
+                message: 'No review for this business'
+              });
+            }
+            return res.status(200).json({
+              error: false,
+              reviews,
+            });
+          }).catch(() => res.status(500).json({
+            error: true,
+            message: 'Server Error'
+          }));
+      });
   }
 
   
