@@ -120,7 +120,7 @@ class BusinessController {
    * @param {object} res The response.
    * @returns {object} response.
    */
-  static getAllBusinessess(req, res) {
+  static getAllBusinesses(req, res) {
     Business
       .findAll({})
       .then((allBusiness) => {
